@@ -1,15 +1,54 @@
 [
   {
     "id": "source_001",
-    "title": "Example Archival Source",
-    "source_type": "oral_history",
-    "creator": null,
+    "title": "Quakertown Oral History Project",
+    "source_type": "oral_history_collection",
+    "creator": "University of North Texas Oral History Program",
     "date": null,
-    "archive": null,
-    "url": null,
-    "citation": null,
+    "archive": "University of North Texas Oral History Program",
+    "url": "https://oralhistory.unt.edu/projects/quakertown-oral-history-project",
+    "citation": "University of North Texas Oral History Program, Quakertown Oral History Project.",
     "rights": null,
-    "accessed_date": null,
-    "notes": ""
+    "accessed_date": "2026-10-05",
+    "notes": "Project overview describing Quakertown, its removal in the 1920s, and oral histories focused on family history, the move, and community ties."
+  },
+  {
+    "id": "source_002",
+    "title": "OH 1642: Reginald Logan",
+    "source_type": "oral_history",
+    "creator": "Sherelyn Yancey",
+    "date": "2006-11-28",
+    "archive": "University of North Texas Oral History Program",
+    "url": "https://oralhistory.unt.edu/oh-1642",
+    "citation": "Reginald Logan, interview by Sherelyn Yancey, November 28, 2006, OH 1642, University of North Texas Oral History Program.",
+    "rights": "Open",
+    "accessed_date": "2026-10-05",
+    "notes": "Interview with a descendant of Quakertown homeowners discussing his father John Logan, other relatives, forced relocation, segregated schools, and family memory of Quakertown."
+  },
+  {
+    "id": "source_003",
+    "title": "OH 1212: Frederick Douglass Moore Family",
+    "source_type": "oral_history",
+    "creator": "Adelene Martin",
+    "date": "1986-05-12",
+    "archive": "University of North Texas Oral History Program",
+    "url": "https://oralhistory.unt.edu/oh-1212",
+    "citation": "Frederick Douglass Moore family, interview by Adelene Martin, May 12, 1986, OH 1212, University of North Texas Oral History Program.",
+    "rights": "Open",
+    "accessed_date": "2026-10-05",
+    "notes": "Interview includes memories of Quakertown, Fred Moore, Frederick Douglass Colored School, and the removal of African American residents to southeast Denton."
+  },
+  {
+    "id": "source_004",
+    "title": "The Woods House",
+    "source_type": "government_record",
+    "creator": "Denton County Office of History and Culture",
+    "date": null,
+    "archive": "Denton County",
+    "url": "https://www.dentoncounty.gov/316/Current-Projects",
+    "citation": "Denton County Office of History and Culture, Current Projects: The Woods House.",
+    "rights": null,
+    "accessed_date": "2026-10-05",
+    "notes": "County history describing William Evelyn Woods, Alberta Woods, their Quakertown property, and their relocation to Solomon Hill."
   }
 ]

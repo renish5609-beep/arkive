@@ -1,13 +1,57 @@
 [
   {
     "id": "relationship_001",
-    "from_entity_id": "person_001",
+    "from_entity_id": "person_004",
     "to_entity_id": "place_001",
-    "relationship_type": "resided_at",
+    "relationship_type": "owned",
+    "start_year": null,
+    "end_year": 1921,
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "William Evelyn Woods owned the Quakertown house prior to the family's relocation."
+  },
+  {
+    "id": "relationship_002",
+    "from_entity_id": "person_004",
+    "to_entity_id": "place_002",
+    "relationship_type": "relocated_to",
+    "start_year": 1921,
+    "end_year": null,
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "The Woods family purchased 8.8 acres on Solomon Hill after selling their Quakertown property."
+  },
+  {
+    "id": "relationship_003",
+    "from_entity_id": "person_005",
+    "to_entity_id": "place_002",
+    "relationship_type": "relocated_to",
+    "start_year": 1921,
+    "end_year": null,
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "Alberta Woods relocated with William Evelyn Woods to Solomon Hill."
+  },
+  {
+    "id": "relationship_004",
+    "from_entity_id": "person_003",
+    "to_entity_id": "place_003",
+    "relationship_type": "principal_of",
+    "start_year": 1915,
+    "end_year": null,
+    "source_ids": ["source_003"],
+    "verification_status": "human_reviewed",
+    "notes": "The Moore family oral history states that Fred Moore was appointed principal of Frederick Douglass Colored School in 1915."
+  },
+  {
+    "id": "relationship_005",
+    "from_entity_id": "person_002",
+    "to_entity_id": "person_001",
+    "relationship_type": "parent_of",
     "start_year": null,
     "end_year": null,
-    "source_ids": [],
-    "verification_status": "unverified",
-    "notes": ""
+    "source_ids": ["source_002"],
+    "verification_status": "human_reviewed",
+    "notes": "John Logan is identified as Reginald Logan's father in the oral history."
   }
 ]

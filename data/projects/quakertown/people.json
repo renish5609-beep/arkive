@@ -1,15 +1,67 @@
 [
   {
     "id": "person_001",
-    "name": "Example Person",
+    "name": "Reginald Logan",
+    "aliases": [],
+    "birth_year": 1948,
+    "death_year": null,
+    "occupation": "Clergyman",
+    "residences": [],
+    "relationships": [],
+    "source_ids": ["source_002"],
+    "verification_status": "human_reviewed",
+    "notes": "Quakertown descendant interviewed for the UNT Quakertown Oral History Project. His interview discusses his father John Logan, other relatives, forced relocation, segregated schooling, and Quakertown in family memory."
+  },
+  {
+    "id": "person_002",
+    "name": "John Logan",
     "aliases": [],
     "birth_year": null,
     "death_year": null,
     "occupation": null,
     "residences": [],
     "relationships": [],
-    "source_ids": [],
-    "verification_status": "unverified",
-    "notes": ""
+    "source_ids": ["source_002"],
+    "verification_status": "human_reviewed",
+    "notes": "Father of Reginald Logan and identified in the oral history as a family member affected by forced removal from Quakertown."
+  },
+  {
+    "id": "person_003",
+    "name": "Frederick Douglass Moore",
+    "aliases": ["Fred Moore"],
+    "birth_year": null,
+    "death_year": null,
+    "occupation": "Educator",
+    "residences": [],
+    "relationships": [],
+    "source_ids": ["source_003"],
+    "verification_status": "human_reviewed",
+    "notes": "Prominent Denton educator discussed extensively in the Moore family oral history. Appointed principal of Frederick Douglass Colored School in 1915."
+  },
+  {
+    "id": "person_004",
+    "name": "William Evelyn Woods",
+    "aliases": [],
+    "birth_year": null,
+    "death_year": null,
+    "occupation": null,
+    "residences": ["place_001", "place_002"],
+    "relationships": [],
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "Owner of the Woods House. Denton County records state that he purchased the house for $600 and later relocated with his wife Alberta from Quakertown to Solomon Hill."
+  },
+  {
+    "id": "person_005",
+    "name": "Alberta Woods",
+    "aliases": [],
+    "birth_year": null,
+    "death_year": null,
+    "occupation": null,
+    "residences": ["place_001", "place_002"],
+    "relationships": [],
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "Wife of William Evelyn Woods. Denton County records describe the couple relocating from Quakertown to Solomon Hill in 1921."
   }
 ]

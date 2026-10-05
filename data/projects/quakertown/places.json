@@ -1,14 +1,38 @@
 [
   {
     "id": "place_001",
-    "name": "Example Historical Location",
+    "name": "Woods House - Quakertown",
     "historical_address": null,
     "modern_address": null,
     "latitude": null,
     "longitude": null,
     "place_type": "residence",
-    "source_ids": [],
-    "verification_status": "unverified",
-    "notes": ""
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "Historic Quakertown house owned by William Evelyn Woods. Denton County states that it originally stood approximately a block and a half from the College of Industrial Arts and across from the original Fred Douglass School."
+  },
+  {
+    "id": "place_002",
+    "name": "Woods Family Property - Solomon Hill",
+    "historical_address": null,
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "residence",
+    "source_ids": ["source_004"],
+    "verification_status": "human_reviewed",
+    "notes": "Denton County records state that the Woods family purchased 8.8 acres on Solomon Hill after selling their Quakertown property during the 1921 displacement."
+  },
+  {
+    "id": "place_003",
+    "name": "Frederick Douglass Colored School",
+    "historical_address": null,
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "school",
+    "source_ids": ["source_003"],
+    "verification_status": "human_reviewed",
+    "notes": "Historically Black school in Denton. The Moore family oral history discusses Fred Moore's appointment as principal in 1915."
   }
 ]
