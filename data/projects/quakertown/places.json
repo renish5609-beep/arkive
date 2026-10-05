@@ -1,0 +1,14 @@
+[
+  {
+    "id": "place_001",
+    "name": "Example Historical Location",
+    "historical_address": null,
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "residence",
+    "source_ids": [],
+    "verification_status": "unverified",
+    "notes": ""
+  }
+]

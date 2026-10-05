@@ -1,0 +1,15 @@
+[
+  {
+    "id": "person_001",
+    "name": "Example Person",
+    "aliases": [],
+    "birth_year": null,
+    "death_year": null,
+    "occupation": null,
+    "residences": [],
+    "relationships": [],
+    "source_ids": [],
+    "verification_status": "unverified",
+    "notes": ""
+  }
+]
