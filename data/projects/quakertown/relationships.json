@@ -1,0 +1,13 @@
+[
+  {
+    "id": "relationship_001",
+    "from_entity_id": "person_001",
+    "to_entity_id": "place_001",
+    "relationship_type": "resided_at",
+    "start_year": null,
+    "end_year": null,
+    "source_ids": [],
+    "verification_status": "unverified",
+    "notes": ""
+  }
+]

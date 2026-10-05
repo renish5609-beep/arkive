@@ -1,25 +1,10 @@
-const residents = [
-  {
-    name: "T.C. Hill",
-    role: "Quakertown resident",
-    years: "c. 1920s",
-    sources: ["Oral history", "Historic map", "Census record"],
-  },
-  {
-    name: "Othella Hill",
-    role: "Quakertown resident",
-    years: "c. 1920s",
-    sources: ["Family record", "Oral history", "City directory"],
-  },
-  {
-    name: "Fred Moore",
-    role: "Community leader",
-    years: "1875–1957",
-    sources: ["Oral history", "Photographs", "Archival records"],
-  },
-];
+import { people, sources } from "@/lib/quakertown";
 
 export default function Home() {
+  const sourceTypeCount = new Set(
+    sources.map((source) => source.source_type)
+  ).size;
+
   return (
     <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
       <nav className="flex items-center justify-between border-b border-black/10 px-6 py-5 md:px-12">
@@ -40,6 +25,7 @@ export default function Home() {
         <a
           href="https://github.com/renish5609-beep/arkive"
           target="_blank"
+          rel="noreferrer"
           className="text-sm underline underline-offset-4"
         >
           Open source
@@ -100,14 +86,14 @@ export default function Home() {
 
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-black/10 pt-6">
               <div>
-                <div className="text-3xl font-medium">12</div>
+                <div className="text-3xl font-medium">{people.length}</div>
                 <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
-                  Initial records
+                  Records
                 </div>
               </div>
 
               <div>
-                <div className="text-3xl font-medium">6</div>
+                <div className="text-3xl font-medium">{sourceTypeCount}</div>
                 <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
                   Source types
                 </div>
@@ -155,37 +141,56 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {residents.map((resident) => (
-            <article
-              key={resident.name}
-              className="border border-black/15 bg-white/30 p-6 transition hover:-translate-y-1 hover:bg-white/60"
-            >
-              <div className="text-xs uppercase tracking-wide opacity-40">
-                {resident.years}
-              </div>
+          {people.map((person) => {
+            const personSources = sources.filter((source) =>
+              person.source_ids.includes(source.id)
+            );
 
-              <h3 className="mt-4 text-2xl font-medium">{resident.name}</h3>
+            const years =
+              person.birth_year !== null || person.death_year !== null
+                ? `${person.birth_year ?? "?"}–${person.death_year ?? "?"}`
+                : "Dates unknown";
 
-              <p className="mt-2 opacity-60">{resident.role}</p>
-
-              <div className="mt-8 border-t border-black/10 pt-5">
-                <div className="mb-3 text-xs font-semibold uppercase tracking-wide opacity-40">
-                  Evidence
+            return (
+              <article
+                key={person.id}
+                className="border border-black/15 bg-white/30 p-6 transition hover:-translate-y-1 hover:bg-white/60"
+              >
+                <div className="text-xs uppercase tracking-wide opacity-40">
+                  {years}
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {resident.sources.map((source) => (
-                    <span
-                      key={source}
-                      className="border border-black/10 px-2 py-1 text-xs"
-                    >
-                      {source}
-                    </span>
-                  ))}
+                <h3 className="mt-4 text-2xl font-medium">{person.name}</h3>
+
+                <p className="mt-2 opacity-60">
+                  {person.occupation ?? "Historical record"}
+                </p>
+
+                <div className="mt-8 border-t border-black/10 pt-5">
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-wide opacity-40">
+                    Evidence
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {personSources.length > 0 ? (
+                      personSources.map((source) => (
+                        <span
+                          key={source.id}
+                          className="border border-black/10 px-2 py-1 text-xs"
+                        >
+                          {source.source_type.replaceAll("_", " ")}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="text-xs opacity-40">
+                        No linked sources yet
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 
