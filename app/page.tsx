@@ -20,12 +20,22 @@ function getEntityName(entityId: string) {
   return entityId;
 }
 
+function getSourceTitle(sourceId: string) {
+  return sources.find((source) => source.id === sourceId)?.title ?? sourceId;
+}
+
 export default function Home() {
   const sourceTypeCount = new Set(
     sources.map((source) => source.source_type)
   ).size;
 
   const linkedRelationshipCount = relationships.length;
+
+  const spatialRelationships = relationships.filter((relationship) =>
+    ["owned", "relocated_to", "principal_of"].includes(
+      relationship.relationship_type
+    )
+  );
 
   return (
     <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
@@ -96,69 +106,218 @@ export default function Home() {
         id="project"
         className="border-y border-black/10 bg-[#e7e0d3] px-6 py-20 md:px-12"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.25fr]">
-          <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] opacity-50">
-              Project 001
-            </p>
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.4fr]">
+            <div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] opacity-50">
+                Project 001
+              </p>
 
-            <h2 className="text-4xl font-medium tracking-tight md:text-6xl">
-              Quakertown Reconstructed
-            </h2>
+              <h2 className="text-4xl font-medium tracking-tight md:text-6xl">
+                Quakertown Reconstructed
+              </h2>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 opacity-70">
-              A source-traceable reconstruction of Denton&apos;s historic
-              Quakertown community, connecting residents, homes, relationships,
-              archival evidence, and displacement over time.
-            </p>
+              <p className="mt-6 max-w-xl text-lg leading-8 opacity-70">
+                A source-traceable reconstruction of Denton&apos;s historic
+                Quakertown community, connecting residents, homes,
+                relationships, archival evidence, and displacement over time.
+              </p>
 
-            <div className="mt-10 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-4">
-              <div>
-                <div className="text-3xl font-medium">{people.length}</div>
-                <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
-                  People
+              <div className="mt-10 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-4">
+                <div>
+                  <div className="text-3xl font-medium">{people.length}</div>
+                  <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                    People
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-3xl font-medium">{places.length}</div>
+                  <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                    Places
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-3xl font-medium">
+                    {linkedRelationshipCount}
+                  </div>
+                  <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                    Relationships
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-3xl font-medium">{sourceTypeCount}</div>
+                  <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                    Source types
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div>
-                <div className="text-3xl font-medium">{places.length}</div>
-                <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
-                  Places
+            <div className="border border-black/15 bg-[#d8d0bf]">
+              <div className="flex items-center justify-between border-b border-black/10 px-5 py-4">
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em] opacity-50">
+                    Reconstruction workspace
+                  </div>
+                  <div className="mt-1 text-sm opacity-70">
+                    Quakertown → Solomon Hill
+                  </div>
                 </div>
+
+                <span className="border border-black/15 px-2 py-1 text-[10px] uppercase tracking-[0.14em] opacity-55">
+                  Georeferencing in progress
+                </span>
               </div>
 
-              <div>
-                <div className="text-3xl font-medium">
-                  {linkedRelationshipCount}
-                </div>
-                <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
-                  Relationships
-                </div>
-              </div>
+              <div className="grid min-h-[520px] lg:grid-cols-[1.5fr_0.8fr]">
+                <div className="relative overflow-hidden border-b border-black/10 p-8 lg:border-b-0 lg:border-r">
+                  <div className="absolute inset-0 opacity-[0.12]">
+                    <div className="absolute left-[8%] top-[18%] h-px w-[70%] rotate-[8deg] bg-black" />
+                    <div className="absolute left-[12%] top-[38%] h-px w-[74%] rotate-[-5deg] bg-black" />
+                    <div className="absolute left-[18%] top-[58%] h-px w-[66%] rotate-[3deg] bg-black" />
+                    <div className="absolute left-[25%] top-[12%] h-[75%] w-px rotate-[9deg] bg-black" />
+                    <div className="absolute left-[52%] top-[8%] h-[80%] w-px rotate-[-6deg] bg-black" />
+                  </div>
 
-              <div>
-                <div className="text-3xl font-medium">{sourceTypeCount}</div>
-                <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
-                  Source types
+                  <div className="relative z-10">
+                    <div className="mb-8 flex items-center justify-between">
+                      <div>
+                        <div className="text-xs uppercase tracking-[0.18em] opacity-45">
+                          Spatial model
+                        </div>
+                        <h3 className="mt-2 text-2xl font-medium">
+                          Displacement and relocation network
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-5">
+                      {spatialRelationships.map((relationship, index) => {
+                        const fromName = getEntityName(
+                          relationship.from_entity_id
+                        );
+                        const toName = getEntityName(
+                          relationship.to_entity_id
+                        );
+
+                        return (
+                          <div
+                            key={relationship.id}
+                            className="relative border border-black/15 bg-[#eee8dc]/80 p-5 backdrop-blur-sm"
+                          >
+                            <div className="absolute -left-2 top-5 flex h-5 w-5 items-center justify-center rounded-full border border-black/20 bg-[#171714] text-[9px] text-white">
+                              {index + 1}
+                            </div>
+
+                            <div className="ml-2">
+                              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] opacity-45">
+                                {relationship.relationship_type.replaceAll(
+                                  "_",
+                                  " "
+                                )}
+                              </div>
+
+                              <div className="mt-3 flex flex-col gap-2 text-sm md:flex-row md:items-center">
+                                <span className="font-medium">{fromName}</span>
+
+                                <span className="opacity-30">→</span>
+
+                                <span>{toName}</span>
+                              </div>
+
+                              {(relationship.start_year ||
+                                relationship.end_year) && (
+                                <div className="mt-3 text-xs opacity-50">
+                                  {relationship.start_year ?? "?"}
+                                  {relationship.end_year
+                                    ? `–${relationship.end_year}`
+                                    : ""}
+                                </div>
+                              )}
+
+                              <div className="mt-4 border-t border-black/10 pt-3">
+                                <div className="text-[10px] uppercase tracking-[0.14em] opacity-40">
+                                  Evidence
+                                </div>
+
+                                <div className="mt-2 flex flex-wrap gap-2">
+                                  {relationship.source_ids.map((sourceId) => (
+                                    <span
+                                      key={sourceId}
+                                      className="border border-black/10 px-2 py-1 text-[11px]"
+                                    >
+                                      {getSourceTitle(sourceId)}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
+
+                <aside className="bg-[#cfc6b4] p-6">
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em] opacity-45">
+                    Historical places
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    {places.map((place) => (
+                      <article
+                        key={place.id}
+                        className="border border-black/15 bg-[#e6dfd2] p-4"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <div className="text-[10px] uppercase tracking-[0.14em] opacity-40">
+                              {place.place_type}
+                            </div>
+
+                            <h4 className="mt-2 text-sm font-medium">
+                              {place.name}
+                            </h4>
+                          </div>
+
+                          <span className="text-[9px] uppercase tracking-[0.12em] opacity-40">
+                            {formatVerification(place.verification_status)}
+                          </span>
+                        </div>
+
+                        <p className="mt-3 text-xs leading-5 opacity-60">
+                          {place.notes}
+                        </p>
+
+                        <div className="mt-4 border-t border-black/10 pt-3 text-[10px] uppercase tracking-[0.12em] opacity-40">
+                          Coordinates pending verification
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </aside>
               </div>
             </div>
           </div>
 
-          <div className="flex min-h-[430px] items-center justify-center border border-black/15 bg-[#d6cebd] p-10">
-            <div className="max-w-lg text-center">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] opacity-40">
-                Spatial reconstruction
+          <div className="mt-8 border border-black/10 bg-[#eee8dc] p-5">
+            <div className="grid gap-5 md:grid-cols-[0.5fr_1fr_1fr] md:items-center">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] opacity-45">
+                Reconstruction rule
               </div>
 
-              <div className="mt-4 text-3xl font-medium">
-                Historical map layer coming next
-              </div>
+              <p className="text-sm leading-6 opacity-65">
+                Arkive does not place historical sites on a map until location
+                evidence has been georeferenced or externally verified.
+              </p>
 
-              <p className="mx-auto mt-4 max-w-md leading-7 opacity-60">
-                Homes, schools, relocation paths, and historical sites will be
-                placed into a spatial reconstruction linked directly to source
-                evidence.
+              <p className="text-sm leading-6 opacity-65">
+                Until then, the system represents spatial relationships as a
+                source-backed network rather than inventing coordinates.
               </p>
             </div>
           </div>

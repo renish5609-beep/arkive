@@ -50,5 +50,31 @@
     "rights": null,
     "accessed_date": "2026-10-05",
     "notes": "County history describing William Evelyn Woods, Alberta Woods, their Quakertown property, and their relocation to Solomon Hill."
+  },
+  {
+    "id": "source_005",
+    "title": "Quakertown: An Undertold Story",
+    "source_type": "historical_marker_research",
+    "creator": "Denton County Historical Commission",
+    "date": null,
+    "archive": "Denton County Historical Commission",
+    "url": "https://apps.dentoncounty.gov/website/HistoricalMarkers/PDFs/Quakertown-Undertold-Story-2010-Subject-Marker-Historical-Narrative-Denton-County.pdf",
+    "citation": "Denton County Historical Commission, Quakertown: An Undertold Story.",
+    "rights": null,
+    "accessed_date": "2026-10-05",
+    "notes": "Historical narrative documenting Quakertown and the original Fred Douglass School at the corner of Terry and Holt Streets."
+  },
+  {
+    "id": "source_006",
+    "title": "Maude Woods Clark Hembry House",
+    "source_type": "photograph_record",
+    "creator": "University of North Texas Libraries",
+    "date": null,
+    "archive": "The Portal to Texas History",
+    "url": "https://texashistory.unt.edu/ark:/67531/metapth20752/",
+    "citation": "Maude Woods Clark Hembry House, photograph and descriptive record, University of North Texas Libraries, The Portal to Texas History.",
+    "rights": null,
+    "accessed_date": "2026-10-05",
+    "notes": "Documents a house built in 1905 at 97 Terry Street in Quakertown and relocated in 1921 to 1129 East Hickory Street in Solomon Hill."
   }
 ]

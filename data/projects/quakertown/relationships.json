@@ -39,9 +39,9 @@
     "relationship_type": "principal_of",
     "start_year": 1915,
     "end_year": null,
-    "source_ids": ["source_003"],
+    "source_ids": ["source_003", "source_005"],
     "verification_status": "human_reviewed",
-    "notes": "The Moore family oral history states that Fred Moore was appointed principal of Frederick Douglass Colored School in 1915."
+    "notes": "Fred Moore served as principal of the Fred Douglass School beginning in 1915."
   },
   {
     "id": "relationship_005",
@@ -53,5 +53,16 @@
     "source_ids": ["source_002"],
     "verification_status": "human_reviewed",
     "notes": "John Logan is identified as Reginald Logan's father in the oral history."
+  },
+  {
+    "id": "relationship_006",
+    "from_entity_id": "place_004",
+    "to_entity_id": "place_005",
+    "relationship_type": "relocated_to",
+    "start_year": 1921,
+    "end_year": 1921,
+    "source_ids": ["source_006"],
+    "verification_status": "human_reviewed",
+    "notes": "The house at 97 Terry Street was physically moved to 1129 East Hickory Street in 1921 using horses and railroad ties."
   }
 ]

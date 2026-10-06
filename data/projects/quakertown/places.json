@@ -25,14 +25,38 @@
   },
   {
     "id": "place_003",
-    "name": "Frederick Douglass Colored School",
-    "historical_address": null,
+    "name": "Original Fred Douglass School",
+    "historical_address": "Corner of Terry Street and Holt Street, Denton, Texas",
     "modern_address": null,
     "latitude": null,
     "longitude": null,
     "place_type": "school",
-    "source_ids": ["source_003"],
+    "source_ids": ["source_005"],
     "verification_status": "human_reviewed",
-    "notes": "Historically Black school in Denton. The Moore family oral history discusses Fred Moore's appointment as principal in 1915."
+    "notes": "The original Fred Douglass School was established at the corner of Terry and Holt Streets by 1878. It became a major educational and community center in Quakertown."
+  },
+  {
+    "id": "place_004",
+    "name": "Maude Woods Clark Hembry House - Quakertown",
+    "historical_address": "97 Terry Street, Denton, Texas",
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "residence",
+    "source_ids": ["source_006"],
+    "verification_status": "human_reviewed",
+    "notes": "House built in 1905 at 97 Terry Street in Quakertown. It was physically relocated in 1921 during the clearance of the neighborhood."
+  },
+  {
+    "id": "place_005",
+    "name": "Maude Woods Clark Hembry House - Solomon Hill",
+    "historical_address": "1129 East Hickory Street, Denton, Texas",
+    "modern_address": "1129 East Hickory Street, Denton, Texas",
+    "latitude": null,
+    "longitude": null,
+    "place_type": "residence",
+    "source_ids": ["source_006"],
+    "verification_status": "human_reviewed",
+    "notes": "The house formerly located at 97 Terry Street was moved here in 1921 using horses and railroad ties. It remained at 1129 East Hickory Street until the structure was demolished in 2005."
   }
 ]
