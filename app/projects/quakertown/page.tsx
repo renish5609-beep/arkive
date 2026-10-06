@@ -17,8 +17,6 @@ import {
   sources,
 } from "@/lib/quakertown";
 import { getProjectMetrics } from "@/lib/project-metrics";
-import impact from "@/data/project-impact.json";
-import externalReviews from "@/data/external-reviews.json";
 
 export const metadata: Metadata = {
   title: "Quakertown Reconstructed",
@@ -77,8 +75,8 @@ export default function QuakertownProjectPage() {
           <div className="mx-auto max-w-7xl">
             <h2 id="impact-heading" className="text-2xl font-medium">Project status</h2>
             <p className="mt-2 text-sm opacity-70">
-              Counts are derived from the dataset. External activity is recorded only when it has
-              actually happened.
+              Counts are derived from the dataset. External activity will appear here only after it
+              has actually happened.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
               <MetricCard value={metrics.people} label="People reconstructed" />
@@ -90,13 +88,6 @@ export default function QuakertownProjectPage() {
               <MetricCard value={metrics.openResearchQuestions} label="Open research questions" />
               <MetricCard value={metrics.pendingMatches} label="Pending identity matches" />
             </div>
-            <dl className="mt-8 grid gap-2 border-t border-black/10 pt-6 text-sm md:grid-cols-2">
-              <div className="flex justify-between gap-4"><dt className="opacity-70">External reviews</dt><dd>{externalReviews.length}</dd></div>
-              <div className="flex justify-between gap-4"><dt className="opacity-70">Educators contacted</dt><dd>{impact.educators_contacted}</dd></div>
-              <div className="flex justify-between gap-4"><dt className="opacity-70">Classrooms using Arkive</dt><dd>{impact.classrooms_using}</dd></div>
-              <div className="flex justify-between gap-4"><dt className="opacity-70">Community contributors</dt><dd>{impact.community_contributors}</dd></div>
-              <div className="flex justify-between gap-4"><dt className="opacity-70">Presentations</dt><dd>{impact.presentations}</dd></div>
-            </dl>
           </div>
         </section>
 

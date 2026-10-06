@@ -1,10 +1,12 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { validateExternalReviews } from "../lib/external-reviews";
+import type { ExternalReview } from "../lib/types";
 
 // Reads only what has actually been recorded. Counts are never estimated.
 const reviews = JSON.parse(
   readFileSync(resolve("data/external-reviews.json"), "utf8")
-) as unknown[];
+) as ExternalReview[];
 const impact = JSON.parse(
   readFileSync(resolve("data/project-impact.json"), "utf8")
 ) as {
@@ -13,6 +15,8 @@ const impact = JSON.parse(
   community_contributors: number;
   presentations: number;
 };
+
+const errors = validateExternalReviews(reviews);
 
 console.log("ARKIVE EXTERNAL VALIDATION");
 console.log("==========================");
@@ -23,3 +27,13 @@ console.log(`Community contributors: ${impact.community_contributors}`);
 console.log(`Presentations: ${impact.presentations}`);
 console.log("");
 console.log("Counts reflect recorded events only. A zero means nothing has been recorded yet.");
+
+if (errors.length > 0) {
+  console.log("");
+  console.log("Malformed review records:");
+  for (const error of errors) console.log(`  - ${error}`);
+  console.log("REVIEW STATUS FAILED");
+  process.exit(1);
+}
+
+console.log("Review records are well formed.");

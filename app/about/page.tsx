@@ -5,6 +5,10 @@ import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Methodology",
+  openGraph: {
+    title: "Methodology | Arkive",
+    description: "How Arkive turns archival sources into source-traceable historical reconstructions, including verification states, spatial confidence, entity matching, and limitations.",
+  },
   description:
     "How Arkive turns archival sources into source-traceable historical reconstructions, including verification states, spatial confidence, entity matching, and limitations.",
 };

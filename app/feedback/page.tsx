@@ -5,6 +5,10 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Feedback and corrections",
+  openGraph: {
+    title: "Feedback and corrections | Arkive",
+    description: "How to report a factual correction, suggest a source, flag a missing person or place, raise a georeference concern, or report an accessibility issue in Arkive.",
+  },
   description:
     "How to report a factual correction, suggest a source, flag a missing person or place, raise a georeference concern, or report an accessibility issue in Arkive.",
 };

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import {
@@ -10,6 +11,15 @@ import {
 function sourceTitle(sourceId: string) {
   return sources.find((source) => source.id === sourceId)?.title ?? sourceId;
 }
+
+export const metadata: Metadata = {
+  title: "Entity resolution queue",
+  description: "Pending identity matches and open research questions for Arkive, shown with their heuristic scores and conflicting evidence. Scores are not historical verification.",
+  openGraph: {
+    title: "Entity resolution queue | Arkive",
+    description: "Pending identity matches and open research questions for Arkive. Scores are heuristics, not historical verification.",
+  },
+};
 
 export default function ReviewPage() {
   const pending = matchCandidates

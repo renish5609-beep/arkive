@@ -106,10 +106,27 @@ To report a correction, suggest a source, or flag an accessibility problem, use 
 
 To contribute code or historical data, read [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## External validation
+
+External reviews and outreach are recorded only after they happen. Run these after any change to `data/external-reviews.json`, `data/project-impact.json`, or `data/outreach-log.json`:
+
+```bash
+npm run outreach:status
+npm run review:status
+npm run audit:impact
+npm run metrics:generate
+```
+
+- `review:status` fails on malformed review records.
+- `audit:impact` fails when a count is larger than its recorded evidence.
+- `metrics:generate` rewrites `docs/application-metrics.md` from the data. Unknown values are shown as Not yet measured.
+
+See [docs/external-review-workflow.md](docs/external-review-workflow.md) and [docs/impact-thresholds.md](docs/impact-thresholds.md).
+
 ## Project status and changes
 
 See [CHANGELOG.md](CHANGELOG.md) for the history of changes. External reviews and outreach are recorded in `data/external-reviews.json` and `data/project-impact.json`. Those files list only events that have actually happened.
 
 ## License
 
-No license file is included in this repository yet. Add a LICENSE file to state the terms of reuse before inviting outside contributions.
+The software in this repository is released under the [MIT License](LICENSE). That file covers code only. The project's dataset and written text are not separately licensed yet, so ask before reusing them. Third-party archival sources keep the rights stated by their holding institutions; check each source's rights field.

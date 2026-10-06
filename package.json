@@ -16,7 +16,10 @@
     "review:status": "tsx scripts/review-status.ts",
     "check:links": "tsx scripts/check-source-links.ts",
     "release:audit": "tsx scripts/release-audit.ts",
-    "check:release": "npm run validate:data && npm run audit:provenance && npm run research:status && npm run georef:status && npm run review:status && npm run lint && npm run build && npm run release:audit"
+    "check:release": "npm run validate:data && npm run audit:provenance && npm run research:status && npm run georef:status && npm run review:status && npm run lint && npm run build && npm run release:audit",
+    "outreach:status": "tsx scripts/outreach-status.ts",
+    "audit:impact": "tsx scripts/impact-audit.ts",
+    "metrics:generate": "tsx scripts/generate-application-metrics.ts"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",

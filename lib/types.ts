@@ -175,3 +175,27 @@ export interface ExternalReview {
   permission_to_name: boolean;
   public_name: string | null;
 }
+
+export interface OutreachLogItem {
+  id: string;
+  category:
+    | "historian"
+    | "educator"
+    | "archive"
+    | "community"
+    | "digital_humanities";
+  organization: string | null;
+  contact_name: string | null;
+  contact_method: "email" | "form" | "in_person" | "other";
+  date_sent: string;
+  ask: string;
+  status:
+    | "sent"
+    | "replied"
+    | "review_scheduled"
+    | "review_completed"
+    | "declined"
+    | "no_response";
+  follow_up_date: string | null;
+  notes: string;
+}

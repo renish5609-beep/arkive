@@ -5,6 +5,10 @@ import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Demo walkthrough",
+  openGraph: {
+    title: "Demo walkthrough | Arkive",
+    description: "A two-minute guided walkthrough of Arkive: follow a source, inspect a record, check provenance, view a georeferenced location, see unresolved research, and download the data.",
+  },
   description:
     "A two-minute guided walkthrough of Arkive: follow a source, inspect a record, check provenance, view a georeferenced location, see unresolved research, and download the data.",
 };

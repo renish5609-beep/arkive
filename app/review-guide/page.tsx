@@ -5,6 +5,10 @@ import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Review guide",
+  openGraph: {
+    title: "Review guide | Arkive",
+    description: "A five-minute guide for historians, educators, and community members to review Arkive's Quakertown reconstruction, with five feedback questions.",
+  },
   description:
     "A five-minute guide for historians, educators, and community members to review Arkive's Quakertown reconstruction, with five feedback questions.",
 };
