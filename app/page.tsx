@@ -7,8 +7,11 @@ import {
   relationships,
   sources,
 } from "@/lib/quakertown";
+import { validateQuakertownData } from "@/lib/validate-quakertown";
 
 export default function Home() {
+  const dataHealth = validateQuakertownData();
+
   const sourceTypeCount = new Set(
     sources.map((source) => source.source_type)
   ).size;
@@ -247,6 +250,77 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-black/10 px-6 py-16 md:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-50">
+              Data Health
+            </p>
+            <span className="border border-black/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] opacity-60">
+              {dataHealth.valid ? "Valid" : "Issues detected"}
+            </span>
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-6">
+            <div>
+              <div className="text-2xl font-medium">{dataHealth.stats.people}</div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                People
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">{dataHealth.stats.places}</div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Places
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">{dataHealth.stats.sources}</div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Sources
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">
+                {dataHealth.stats.relationships}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Relationships
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">
+                {dataHealth.errors.length}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Errors
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">
+                {dataHealth.warnings.length}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Warnings
+              </div>
+            </div>
+          </div>
+
+          {dataHealth.errors.length > 0 && (
+            <div className="mt-8 border border-black/15 bg-white/25 p-5 font-mono text-xs leading-6">
+              <div className="mb-2 font-semibold uppercase tracking-[0.14em] opacity-60">
+                Developer detail
+              </div>
+              <ul className="space-y-1">
+                {dataHealth.errors.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 
