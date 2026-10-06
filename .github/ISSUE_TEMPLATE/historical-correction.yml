@@ -1,0 +1,50 @@
+name: Historical correction
+description: Report a factual error, a missing person or place, or a georeference concern
+title: "[Correction] "
+labels: ["historical-correction", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Submitted corrections are reviewed before they affect the canonical dataset.**
+        Please name a source for every correction. Do not send private information about living people.
+  - type: input
+    id: record
+    attributes:
+      label: Record or entity
+      description: The record ID or page URL (for example person_004, place_005, or /records/person_004).
+      placeholder: person_004
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim being corrected
+      description: Quote the current statement exactly as it appears on the site.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: The wording or value you propose. If it is uncertain, say so.
+    validations:
+      required: true
+  - type: input
+    id: citation
+    attributes:
+      label: Source or citation
+      description: Full citation of the record that supports the correction.
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: A link to the source, if one exists online. Use the full https address.
+      placeholder: https://
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that helps a reviewer check the source. Note any uncertainty.

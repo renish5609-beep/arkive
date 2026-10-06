@@ -1,4 +1,5 @@
-import Link from "next/link";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import {
   getMentionById,
   matchCandidates,
@@ -28,16 +29,7 @@ export default function ReviewPage() {
   ).length;
 
   return (
-    <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
-      <nav className="flex items-center justify-between border-b border-black/10 px-6 py-5 md:px-12">
-        <Link href="/" className="text-xl font-semibold tracking-tight">
-          ARKIVE
-        </Link>
-        <Link href="/" className="text-sm underline underline-offset-4">
-          Back to archive
-        </Link>
-      </nav>
-
+    <div className="min-h-screen bg-[#f4f0e7] text-[#171714]"><SiteHeader /><main>
       <article className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-45">
           Research review
@@ -172,6 +164,6 @@ export default function ReviewPage() {
           </div>
         </section>
       </article>
-    </main>
+    </main><SiteFooter /></div>
   );
 }

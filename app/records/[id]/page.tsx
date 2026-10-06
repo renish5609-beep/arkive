@@ -1,6 +1,10 @@
 import Link from "next/link";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import { notFound } from "next/navigation";
 import {
+  people,
+  places,
   formatVerification,
   getEntityName,
   getGeoreferenceQueueItemForPlace,
@@ -14,6 +18,10 @@ import {
   getSourcesForIds,
 } from "@/lib/quakertown";
 import type { HistoricalPlace } from "@/lib/types";
+
+export function generateStaticParams() {
+  return [...people, ...places].map((entity) => ({ id: entity.id }));
+}
 
 export default async function RecordPage({
   params,
@@ -38,16 +46,7 @@ export default async function RecordPage({
       : "Dates unknown";
 
   return (
-    <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
-      <nav className="flex items-center justify-between border-b border-black/10 px-6 py-5 md:px-12">
-        <Link href="/" className="text-xl font-semibold tracking-tight">
-          ARKIVE
-        </Link>
-        <Link href="/#records" className="text-sm underline underline-offset-4">
-          Back to archive
-        </Link>
-      </nav>
-
+    <div className="min-h-screen bg-[#f4f0e7] text-[#171714]"><SiteHeader /><main>
       <article className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24">
         <div className="flex flex-wrap items-center gap-3">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] opacity-45">
@@ -149,7 +148,7 @@ export default async function RecordPage({
           </div>
         </section>
       </article>
-    </main>
+    </main><SiteFooter /></div>
   );
 }
 
@@ -162,11 +161,7 @@ function PlaceRecord({ place }: { place: HistoricalPlace }) {
   const radius = evidence.find((item) => item.radius_meters !== null)?.radius_meters;
 
   return (
-    <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
-      <nav className="flex items-center justify-between border-b border-black/10 px-6 py-5 md:px-12">
-        <Link href="/" className="text-xl font-semibold tracking-tight">ARKIVE</Link>
-        <Link href="/#project" className="text-sm underline underline-offset-4">Back to reconstruction</Link>
-      </nav>
+    <div className="min-h-screen bg-[#f4f0e7] text-[#171714]"><SiteHeader /><main>
       <article className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24">
         <div className="flex flex-wrap items-center gap-3">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] opacity-45">Reconstructed place record</div>
@@ -206,7 +201,7 @@ function PlaceRecord({ place }: { place: HistoricalPlace }) {
           </div>
         </section>
       </article>
-    </main>
+    </main><SiteFooter /></div>
   );
 }
 

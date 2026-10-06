@@ -162,3 +162,16 @@ export interface ResearchQueueItem {
   suggested_sources: string[];
   notes: string;
 }
+
+
+export interface ExternalReview {
+  id: string;
+  reviewer_role: string;
+  organization: string | null;
+  date: string;
+  scope: string;
+  feedback_summary: string;
+  changes_made: string[];
+  permission_to_name: boolean;
+  public_name: string | null;
+}

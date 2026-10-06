@@ -1,12 +1,19 @@
 import Link from "next/link";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import { notFound } from "next/navigation";
 import {
   getSourceById,
+  sources,
   mentions,
   people,
   places,
   relationships,
 } from "@/lib/quakertown";
+
+export function generateStaticParams() {
+  return sources.map((source) => ({ id: source.id }));
+}
 
 export default async function SourcePage({
   params,
@@ -46,16 +53,7 @@ export default async function SourcePage({
   });
 
   return (
-    <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
-      <nav className="flex items-center justify-between border-b border-black/10 px-6 py-5 md:px-12">
-        <Link href="/" className="text-xl font-semibold tracking-tight">
-          ARKIVE
-        </Link>
-        <Link href="/#provenance" className="text-sm underline underline-offset-4">
-          Back to sources
-        </Link>
-      </nav>
-
+    <div className="min-h-screen bg-[#f4f0e7] text-[#171714]"><SiteHeader /><main>
       <article className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24">
         <div className="text-xs font-semibold uppercase tracking-[0.2em] opacity-45">
           {source.source_type.replaceAll("_", " ")}
@@ -229,6 +227,6 @@ export default async function SourcePage({
           )}
         </section>
       </article>
-    </main>
+    </main><SiteFooter /></div>
   );
 }

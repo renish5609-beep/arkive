@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Review guide
+    url: https://github.com/renish5609-beep/arkive/blob/main/CONTRIBUTING.md
+    about: Read the contribution guidelines for code and historical data before opening an issue.

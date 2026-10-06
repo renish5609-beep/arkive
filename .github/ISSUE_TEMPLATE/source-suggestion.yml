@@ -1,0 +1,48 @@
+name: Source suggestion
+description: Suggest an archival collection, oral history, map, or record for the Quakertown reconstruction
+title: "[Source] "
+labels: ["source-suggestion", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggested sources are reviewed before any claim is drawn from them.
+        Prefer archival collections, oral histories, census and directory records, deeds, maps, and official local records.
+  - type: input
+    id: title
+    attributes:
+      label: Source title
+    validations:
+      required: true
+  - type: input
+    id: archive
+    attributes:
+      label: Holding institution or archive
+      placeholder: UNT Libraries, Denton County Historical Commission, and so on
+  - type: input
+    id: url
+    attributes:
+      label: Source URL
+      description: Full https address of the record, finding aid, or transcript.
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: What the source documents
+      description: People, places, dates, or events it covers. Quote the passage if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why it matters for the reconstruction
+      description: Which existing record or open research question it might inform.
+  - type: checkboxes
+    id: access
+    attributes:
+      label: Access
+      options:
+        - label: I could open this source myself.
+        - label: I am not certain the source is accessible to the public.

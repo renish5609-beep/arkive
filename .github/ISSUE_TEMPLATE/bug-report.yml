@@ -1,0 +1,45 @@
+name: Bug or accessibility issue
+description: Report a broken page, a layout problem, a map or export error, or an accessibility barrier
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL or route
+      placeholder: /projects/quakertown
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of issue
+      options:
+        - Functional bug
+        - Layout or mobile display
+        - Map
+        - Data export
+        - Accessibility (keyboard, screen reader, contrast, zoom)
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open the page. 2. Select ..."
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, device, and screen width
+      placeholder: Chrome 130 on Windows, 390 px wide
+  - type: textarea
+    id: console
+    attributes:
+      label: Console or error messages, if any
+      render: text
