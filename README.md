@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Georeferencing policy
+
+Arkive distinguishes exact, approximate, and unresolved historical locations.
+Coordinates are only added when supported by address, archival map, parcel/GIS,
+or other reviewable evidence. Approximate locations retain an uncertainty
+radius and provenance record. Unresolved locations remain visible in the
+research queue rather than being guessed.
+
+Useful commands:
+
+```bash
+npm run validate:data
+npm run georef:status
+```

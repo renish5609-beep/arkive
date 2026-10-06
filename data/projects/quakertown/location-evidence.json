@@ -1,0 +1,44 @@
+[
+  {
+    "id": "location_evidence_001",
+    "place_id": "place_003",
+    "status": "unresolved",
+    "method": "intersection",
+    "latitude": null,
+    "longitude": null,
+    "radius_meters": null,
+    "source_ids": ["source_005"],
+    "evidence_text": "The historical narrative places the original Fred Douglass School at the corner of Terry and Holt Streets.",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "The historical intersection must be reconciled with a period street map before coordinates are assigned."
+  },
+  {
+    "id": "location_evidence_002",
+    "place_id": "place_004",
+    "status": "unresolved",
+    "method": "historical_map",
+    "latitude": null,
+    "longitude": null,
+    "radius_meters": null,
+    "source_ids": ["source_006"],
+    "evidence_text": "The house is documented at 97 Terry Street before its 1921 relocation.",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "The historical address requires a period map or independently verified address crosswalk before coordinates are assigned."
+  },
+  {
+    "id": "location_evidence_003",
+    "place_id": "place_005",
+    "status": "exact",
+    "method": "modern_address_geocode",
+    "latitude": 33.2144654,
+    "longitude": -97.1194724,
+    "radius_meters": null,
+    "source_ids": ["source_006"],
+    "evidence_text": "The relocated house is documented at 1129 East Hickory Street.",
+    "reviewer": "Claude Code geocode verification",
+    "reviewed_date": "2026-10-06",
+    "notes": "Coordinate obtained from a single OpenStreetMap Nominatim search for '1129 East Hickory Street, Denton, Texas' (accessed 2026-10-06). The sole result is a house-number match on East Hickory Street in Denton, Denton County, Texas (76205), with a point-scale bounding box. The match confirms the modern address only; it does not establish the 1921 relocation or any historical location. Geocoder output should be re-checked against Denton County parcel or GIS records before the coordinate is treated as final."
+  }
+]

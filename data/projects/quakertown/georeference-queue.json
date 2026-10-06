@@ -1,0 +1,70 @@
+[
+  {
+    "id": "geo_queue_001",
+    "place_id": "place_005",
+    "priority": "high",
+    "research_question": "Can 1129 East Hickory Street be confidently geocoded to a modern parcel or address point in Denton?",
+    "suggested_sources": [
+      "OpenStreetMap / Nominatim",
+      "Denton County parcel or GIS records",
+      "City of Denton address/GIS data"
+    ],
+    "status": "resolved",
+    "notes": "This is the easiest candidate for an exact modern coordinate because the post-relocation address is explicit. Resolved 2026-10-06 by a single Nominatim house-number match (see location_evidence_003). Parcel/GIS cross-check remains recommended."
+  },
+  {
+    "id": "geo_queue_002",
+    "place_id": "place_004",
+    "priority": "high",
+    "research_question": "Where was 97 Terry Street located within historical Quakertown before the 1921 relocation?",
+    "suggested_sources": [
+      "Sanborn or other period maps",
+      "Denton archival maps",
+      "Denton County Historical Commission material",
+      "UNT Portal to Texas History"
+    ],
+    "status": "open",
+    "notes": "Do not use a present-day Terry Street result without proving historical continuity."
+  },
+  {
+    "id": "geo_queue_003",
+    "place_id": "place_003",
+    "priority": "high",
+    "research_question": "Where was the historical intersection of Terry Street and Holt Street relative to the modern street grid?",
+    "suggested_sources": [
+      "Period Denton maps",
+      "Sanborn maps",
+      "Denton County historical-marker research",
+      "UNT map collections"
+    ],
+    "status": "open",
+    "notes": "The current source establishes the historical intersection but not modern coordinates."
+  },
+  {
+    "id": "geo_queue_004",
+    "place_id": "place_001",
+    "priority": "medium",
+    "research_question": "Can the original Woods House location be narrowed beyond the relative description near the College of Industrial Arts and across from the original Fred Douglass School?",
+    "suggested_sources": [
+      "Denton County Office of History and Culture",
+      "historic property maps",
+      "period city directories",
+      "UNT archives"
+    ],
+    "status": "open",
+    "notes": "The present evidence is relative rather than coordinate-level."
+  },
+  {
+    "id": "geo_queue_005",
+    "place_id": "place_002",
+    "priority": "medium",
+    "research_question": "Can the Woods family's 8.8-acre Solomon Hill property be tied to a parcel, deed, or mapped boundary?",
+    "suggested_sources": [
+      "Denton County deed records",
+      "parcel/GIS data",
+      "Denton County Office of History and Culture"
+    ],
+    "status": "open",
+    "notes": "Prefer parcel or deed evidence over inferred neighborhood centroids."
+  }
+]

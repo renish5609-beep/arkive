@@ -18,6 +18,45 @@ export interface HistoricalPerson {
   notes: string;
 }
 
+export type GeoreferenceStatus =
+  | "unresolved"
+  | "approximate"
+  | "exact";
+
+export type GeoreferenceMethod =
+  | "modern_address_geocode"
+  | "historical_map"
+  | "intersection"
+  | "parcel"
+  | "relative_description"
+  | "archival_coordinate"
+  | "human_review";
+
+export interface LocationEvidence {
+  id: string;
+  place_id: string;
+  status: GeoreferenceStatus;
+  method: GeoreferenceMethod;
+  latitude: number | null;
+  longitude: number | null;
+  radius_meters: number | null;
+  source_ids: string[];
+  evidence_text: string;
+  reviewer: string | null;
+  reviewed_date: string | null;
+  notes: string;
+}
+
+export interface GeoreferenceQueueItem {
+  id: string;
+  place_id: string;
+  priority: "high" | "medium" | "low";
+  research_question: string;
+  suggested_sources: string[];
+  status: "open" | "blocked" | "resolved";
+  notes: string;
+}
+
 export interface HistoricalPlace {
   id: string;
   name: string;
@@ -29,6 +68,8 @@ export interface HistoricalPlace {
   source_ids: string[];
   verification_status: VerificationStatus;
   notes: string;
+  georeference_status: GeoreferenceStatus;
+  location_evidence_ids: string[];
 }
 
 export interface HistoricalSource {

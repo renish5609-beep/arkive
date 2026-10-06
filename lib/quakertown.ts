@@ -2,12 +2,16 @@ import peopleData from "@/data/projects/quakertown/people.json";
 import placesData from "@/data/projects/quakertown/places.json";
 import sourcesData from "@/data/projects/quakertown/sources.json";
 import relationshipsData from "@/data/projects/quakertown/relationships.json";
+import locationEvidenceData from "@/data/projects/quakertown/location-evidence.json";
+import georeferenceQueueData from "@/data/projects/quakertown/georeference-queue.json";
 
 import type {
+  GeoreferenceQueueItem,
   HistoricalPerson,
   HistoricalPlace,
   HistoricalSource,
   HistoricalRelationship,
+  LocationEvidence,
 } from "./types";
 
 export const people = peopleData as HistoricalPerson[];
@@ -15,6 +19,10 @@ export const places = placesData as HistoricalPlace[];
 export const sources = sourcesData as HistoricalSource[];
 export const relationships =
   relationshipsData as HistoricalRelationship[];
+export const locationEvidence =
+  locationEvidenceData as LocationEvidence[];
+export const georeferenceQueue =
+  georeferenceQueueData as GeoreferenceQueueItem[];
 
 export function formatVerification(status: string) {
   return status.replaceAll("_", " ");
@@ -54,8 +62,17 @@ export function getSourcesForIds(sourceIds: string[]) {
   return sources.filter((source) => sourceIds.includes(source.id));
 }
 
+export function getLocationEvidenceForPlace(placeId: string) {
+  return locationEvidence.filter((item) => item.place_id === placeId);
+}
+
+export function getGeoreferenceQueueItemForPlace(placeId: string) {
+  return georeferenceQueue.find((item) => item.place_id === placeId);
+}
+
 export function isMappablePlace(place: HistoricalPlace) {
   return (
+    place.georeference_status !== "unresolved" &&
     typeof place.latitude === "number" &&
     Number.isFinite(place.latitude) &&
     typeof place.longitude === "number" &&

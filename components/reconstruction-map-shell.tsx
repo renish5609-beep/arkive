@@ -5,6 +5,7 @@ import type {
   HistoricalPlace,
   HistoricalRelationship,
   HistoricalSource,
+  LocationEvidence,
 } from "@/lib/types";
 
 const ReconstructionMap = dynamic(
@@ -25,6 +26,7 @@ interface ReconstructionMapShellProps {
   places: HistoricalPlace[];
   relationships: HistoricalRelationship[];
   sources: HistoricalSource[];
+  locationEvidence: LocationEvidence[];
 }
 
 export default function ReconstructionMapShell(

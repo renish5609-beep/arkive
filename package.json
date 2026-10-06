@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "validate:data": "tsx scripts/validate-data.ts"
+    "validate:data": "tsx scripts/validate-data.ts",
+    "georef:status": "tsx scripts/georeference-status.ts"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",

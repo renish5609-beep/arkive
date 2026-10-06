@@ -2,6 +2,8 @@ import Link from "next/link";
 import ArchiveExplorer from "@/components/archive-explorer";
 import ReconstructionMapShell from "@/components/reconstruction-map-shell";
 import {
+  georeferenceQueue,
+  locationEvidence,
   people,
   places,
   relationships,
@@ -16,11 +18,22 @@ export default function Home() {
     sources.map((source) => source.source_type)
   ).size;
 
-  const mappablePlaceCount = places.filter(
-    (place) =>
-      typeof place.latitude === "number" &&
-      typeof place.longitude === "number"
+  const exactCount = places.filter(
+    (place) => place.georeference_status === "exact"
   ).length;
+  const approximateCount = places.filter(
+    (place) => place.georeference_status === "approximate"
+  ).length;
+  const unresolvedPlaces = places.filter(
+    (place) => place.georeference_status === "unresolved"
+  );
+  const openResearchCount = georeferenceQueue.filter(
+    (item) => item.status === "open"
+  ).length;
+
+  const priorityByPlace = new Map(
+    georeferenceQueue.map((item) => [item.place_id, item.priority] as const)
+  );
 
   return (
     <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
@@ -146,12 +159,37 @@ export default function Home() {
                 <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-45">
                   Georeferencing status
                 </div>
-                <div className="mt-2 text-2xl font-medium">
-                  {mappablePlaceCount} / {places.length} places plotted
+                <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+                  <div>
+                    <div className="text-2xl font-medium">{exactCount}</div>
+                    <div className="mt-1 text-[10px] uppercase tracking-[0.14em] opacity-50">
+                      Exact
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-medium">{approximateCount}</div>
+                    <div className="mt-1 text-[10px] uppercase tracking-[0.14em] opacity-50">
+                      Approximate
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-medium">
+                      {unresolvedPlaces.length}
+                    </div>
+                    <div className="mt-1 text-[10px] uppercase tracking-[0.14em] opacity-50">
+                      Unresolved
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-medium">{openResearchCount}</div>
+                    <div className="mt-1 text-[10px] uppercase tracking-[0.14em] opacity-50">
+                      Research queue
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-3 text-sm leading-6 opacity-65">
-                  Arkive will not invent coordinates. Historical markers appear
-                  only after their locations are georeferenced and reviewed.
+                <p className="mt-4 text-sm leading-6 opacity-65">
+                  Historical locations remain unresolved until the evidence
+                  supports a defensible placement.
                 </p>
               </div>
             </div>
@@ -161,10 +199,42 @@ export default function Home() {
                 places={places}
                 relationships={relationships}
                 sources={sources}
+                locationEvidence={locationEvidence}
               />
               <div className="mt-4 flex flex-wrap justify-between gap-3 text-xs opacity-50">
                 <span>Live OpenStreetMap base layer</span>
-                <span>Historical markers require verified coordinates</span>
+                <span>Exact and approximate locations only; unresolved sites are not drawn</span>
+              </div>
+
+              <div className="mt-6 border border-black/10 bg-[#f4f0e7]/45 p-5">
+                <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-45">
+                  Awaiting georeference
+                </div>
+                {unresolvedPlaces.length > 0 ? (
+                  <ul className="mt-4 divide-y divide-black/10">
+                    {unresolvedPlaces.map((place) => {
+                      const priority = priorityByPlace.get(place.id);
+
+                      return (
+                        <li
+                          key={place.id}
+                          className="flex items-start justify-between gap-4 py-3 text-sm"
+                        >
+                          <span>{place.name}</span>
+                          {priority && (
+                            <span className="shrink-0 border border-black/15 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] opacity-60">
+                              {priority} priority
+                            </span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <p className="mt-4 text-sm opacity-60">
+                    Every recorded place has a georeferenced location.
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -264,7 +334,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-6">
+          <div className="mt-8 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-5">
             <div>
               <div className="text-2xl font-medium">{dataHealth.stats.people}</div>
               <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
@@ -305,6 +375,28 @@ export default function Home() {
               </div>
               <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
                 Warnings
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">
+                {dataHealth.stats.locationEvidence}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Location evidence
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">
+                {dataHealth.stats.mappablePlaces}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Mappable places
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-medium">{openResearchCount}</div>
+              <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
+                Open georeference tasks
               </div>
             </div>
           </div>

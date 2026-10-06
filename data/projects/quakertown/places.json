@@ -7,9 +7,13 @@
     "latitude": null,
     "longitude": null,
     "place_type": "residence",
-    "source_ids": ["source_004"],
+    "source_ids": [
+      "source_004"
+    ],
     "verification_status": "human_reviewed",
-    "notes": "Historic Quakertown house owned by William Evelyn Woods. Denton County states that it originally stood approximately a block and a half from the College of Industrial Arts and across from the original Fred Douglass School."
+    "notes": "Historic Quakertown house owned by William Evelyn Woods. Denton County states that it originally stood approximately a block and a half from the College of Industrial Arts and across from the original Fred Douglass School.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": []
   },
   {
     "id": "place_002",
@@ -19,9 +23,13 @@
     "latitude": null,
     "longitude": null,
     "place_type": "residence",
-    "source_ids": ["source_004"],
+    "source_ids": [
+      "source_004"
+    ],
     "verification_status": "human_reviewed",
-    "notes": "Denton County records state that the Woods family purchased 8.8 acres on Solomon Hill after selling their Quakertown property during the 1921 displacement."
+    "notes": "Denton County records state that the Woods family purchased 8.8 acres on Solomon Hill after selling their Quakertown property during the 1921 displacement.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": []
   },
   {
     "id": "place_003",
@@ -31,9 +39,15 @@
     "latitude": null,
     "longitude": null,
     "place_type": "school",
-    "source_ids": ["source_005"],
+    "source_ids": [
+      "source_005"
+    ],
     "verification_status": "human_reviewed",
-    "notes": "The original Fred Douglass School was established at the corner of Terry and Holt Streets by 1878. It became a major educational and community center in Quakertown."
+    "notes": "The original Fred Douglass School was established at the corner of Terry and Holt Streets by 1878. It became a major educational and community center in Quakertown.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": [
+      "location_evidence_001"
+    ]
   },
   {
     "id": "place_004",
@@ -43,20 +57,32 @@
     "latitude": null,
     "longitude": null,
     "place_type": "residence",
-    "source_ids": ["source_006"],
+    "source_ids": [
+      "source_006"
+    ],
     "verification_status": "human_reviewed",
-    "notes": "House built in 1905 at 97 Terry Street in Quakertown. It was physically relocated in 1921 during the clearance of the neighborhood."
+    "notes": "House built in 1905 at 97 Terry Street in Quakertown. It was physically relocated in 1921 during the clearance of the neighborhood.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": [
+      "location_evidence_002"
+    ]
   },
   {
     "id": "place_005",
     "name": "Maude Woods Clark Hembry House - Solomon Hill",
     "historical_address": "1129 East Hickory Street, Denton, Texas",
     "modern_address": "1129 East Hickory Street, Denton, Texas",
-    "latitude": null,
-    "longitude": null,
+    "latitude": 33.2144654,
+    "longitude": -97.1194724,
     "place_type": "residence",
-    "source_ids": ["source_006"],
+    "source_ids": [
+      "source_006"
+    ],
     "verification_status": "human_reviewed",
-    "notes": "The house formerly located at 97 Terry Street was moved here in 1921 using horses and railroad ties. It remained at 1129 East Hickory Street until the structure was demolished in 2005."
+    "notes": "The house formerly located at 97 Terry Street was moved here in 1921 using horses and railroad ties. It remained at 1129 East Hickory Street until the structure was demolished in 2005.",
+    "georeference_status": "exact",
+    "location_evidence_ids": [
+      "location_evidence_003"
+    ]
   }
 ]

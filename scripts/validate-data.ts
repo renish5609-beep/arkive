@@ -9,6 +9,9 @@ console.log(`People:        ${result.stats.people}`);
 console.log(`Places:        ${result.stats.places}`);
 console.log(`Sources:       ${result.stats.sources}`);
 console.log(`Relationships: ${result.stats.relationships}`);
+console.log(`Location evidence: ${result.stats.locationEvidence}`);
+console.log(`Research queue:    ${result.stats.georeferenceQueue}`);
+console.log(`Mappable places:   ${result.stats.mappablePlaces}`);
 console.log(`Errors:        ${result.errors.length}`);
 console.log(`Warnings:      ${result.warnings.length}`);
 
