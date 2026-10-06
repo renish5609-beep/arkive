@@ -12,6 +12,9 @@ console.log(`Relationships: ${result.stats.relationships}`);
 console.log(`Location evidence: ${result.stats.locationEvidence}`);
 console.log(`Research queue:    ${result.stats.georeferenceQueue}`);
 console.log(`Mappable places:   ${result.stats.mappablePlaces}`);
+console.log(`Mentions:          ${result.stats.mentions}`);
+console.log(`Match candidates:  ${result.stats.matchCandidates} (pending ${result.stats.pendingMatches}, accepted ${result.stats.acceptedMatches})`);
+console.log(`Open research:     ${result.stats.openResearchItems}`);
 console.log(`Errors:        ${result.errors.length}`);
 console.log(`Warnings:      ${result.warnings.length}`);
 

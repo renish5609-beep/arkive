@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "eslint",
     "validate:data": "tsx scripts/validate-data.ts",
-    "georef:status": "tsx scripts/georeference-status.ts"
+    "georef:status": "tsx scripts/georeference-status.ts",
+    "matches:preview": "tsx scripts/generate-match-candidates.ts",
+    "matches:write": "tsx scripts/generate-match-candidates.ts --write",
+    "research:status": "tsx scripts/research-status.ts",
+    "audit:provenance": "tsx scripts/audit-provenance.ts"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",

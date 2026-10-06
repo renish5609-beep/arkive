@@ -1,0 +1,88 @@
+[
+  {
+    "id": "research_001",
+    "kind": "person_identity",
+    "entity_ids": ["place_004", "place_005"],
+    "mention_ids": ["mention_013"],
+    "question": "Who was Maude Woods Clark Hembry, and does a documented person record for her belong in the canonical dataset?",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "The Portal to Texas History (photograph record metapth20752)",
+      "Denton County Office of History and Culture",
+      "period city directories"
+    ],
+    "notes": "The house title names her, but no source in the dataset establishes her as a person record. Do not create a person record from the house title alone."
+  },
+  {
+    "id": "research_002",
+    "kind": "place_identity",
+    "entity_ids": ["place_003"],
+    "mention_ids": ["mention_005", "mention_010"],
+    "question": "Is the 'Frederick Douglass Colored School' named in the Moore family oral history the same institution as the 'Original Fred Douglass School' at Terry and Holt Streets?",
+    "priority": "high",
+    "status": "open",
+    "suggested_sources": [
+      "UNT Oral History OH 1212 full transcript",
+      "Denton County Historical Commission narrative (source_005)",
+      "Period Denton maps and school records"
+    ],
+    "notes": "Names are similar but the source descriptions do not state that they are the same institution. Keep the mentions separate until a source confirms identity."
+  },
+  {
+    "id": "research_003",
+    "kind": "biographical_field",
+    "entity_ids": ["person_005"],
+    "mention_ids": ["mention_007"],
+    "question": "What additional biographical details about Alberta Woods (dates, occupation, relationship to William Evelyn Woods) does a source support?",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "Denton County Office of History and Culture (Woods House materials)",
+      "Denton County deed records",
+      "federal census schedules (accessible copies)"
+    ],
+    "notes": "The existing person record calls her his wife, but the excerpt in source_004 does not state the relationship directly. Verify before recording it as a relationship."
+  },
+  {
+    "id": "research_004",
+    "kind": "relationship",
+    "entity_ids": ["place_004", "place_005"],
+    "mention_ids": ["mention_011", "mention_012"],
+    "question": "Can the 1921 relocation of the Hembry house from 97 Terry Street to 1129 East Hickory Street be corroborated by a second, independent source?",
+    "priority": "high",
+    "status": "open",
+    "suggested_sources": [
+      "Portal to Texas History photograph and descriptive records for the house",
+      "Denton County Historical Commission records",
+      "Period newspaper coverage of 1921 Denton relocations (accessible copies)"
+    ],
+    "notes": "The relocation is currently supported by a single source description (source_006). Single-source evidence is recorded, not treated as corroborated."
+  },
+  {
+    "id": "research_005",
+    "kind": "source_followup",
+    "entity_ids": [],
+    "mention_ids": ["mention_001"],
+    "question": "Read the Quakertown Oral History Project overview at UNT and identify any additional named residents, places, or dates it supports.",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "UNT Oral History Program project page (source_001)"
+    ],
+    "notes": "Only the project overview description has been reviewed. Mentions must not be extracted from the overview's general description beyond what is written."
+  },
+  {
+    "id": "research_006",
+    "kind": "person_identity",
+    "entity_ids": ["person_002"],
+    "mention_ids": ["mention_003"],
+    "question": "Confirm from the full OH 1642 transcript that John Logan is the interviewee's father, and record any dates or residences the transcript gives for him.",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "UNT Oral History OH 1642 transcript (source_002)"
+    ],
+    "notes": "Current evidence is the source description. The father relationship is recorded from that description and should be checked against the transcript."
+  }
+]

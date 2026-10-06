@@ -5,9 +5,12 @@ import {
   getEntityName,
   getGeoreferenceQueueItemForPlace,
   getLocationEvidenceForPlace,
+  getMentionsForEntity,
+  getOpenResearchItemsForEntity,
   getPersonById,
   getPlaceById,
   getRelationshipsForEntity,
+  getSourceById,
   getSourcesForIds,
 } from "@/lib/quakertown";
 import type { HistoricalPlace } from "@/lib/types";
@@ -95,6 +98,8 @@ export default async function RecordPage({
             ))}
           </div>
         </section>
+
+        <ArchivalMentions entityId={person.id} />
 
         <section className="mt-16 border-t border-black/10 pt-10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-45">
@@ -191,6 +196,8 @@ function PlaceRecord({ place }: { place: HistoricalPlace }) {
           {queueItem && (<div className="mt-8 border border-black/15 p-5"><div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-45">Research question</div><p className="mt-2 leading-7">{queueItem.research_question}</p></div>)}
         </section>
 
+        <ArchivalMentions entityId={place.id} />
+
         <section className="mt-16 border-t border-black/10 pt-10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-45">Evidence</p>
           <h2 className="mt-3 text-3xl font-medium">Linked sources</h2>
@@ -200,5 +207,99 @@ function PlaceRecord({ place }: { place: HistoricalPlace }) {
         </section>
       </article>
     </main>
+  );
+}
+
+function ArchivalMentions({ entityId }: { entityId: string }) {
+  const linkedMentions = getMentionsForEntity(entityId);
+  const openItems = getOpenResearchItemsForEntity(entityId);
+
+  return (
+    <section className="mt-16 border-t border-black/10 pt-10">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-45">
+        Archival mentions
+      </p>
+      <h2 className="mt-3 text-3xl font-medium">Source mentions</h2>
+      <p className="mt-3 max-w-3xl text-sm leading-6 opacity-60">
+        A mention is a raw occurrence in a source. It becomes part of this record
+        only through the linked-entity field, which is set after review.
+      </p>
+
+      {linkedMentions.length > 0 ? (
+        <div className="mt-8 space-y-4">
+          {linkedMentions.map((mention) => {
+            const source = getSourceById(mention.source_id);
+
+            return (
+              <div key={mention.id} className="border border-black/15 bg-white/20 p-5 text-sm">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div className="font-medium">{mention.raw_name ?? "Unnamed mention"}</div>
+                  <span className="border border-black/15 px-2 py-1 text-[10px] uppercase tracking-[0.14em] opacity-60">
+                    {formatVerification(mention.verification_status)}
+                  </span>
+                </div>
+                <dl className="mt-4 grid gap-x-6 gap-y-2 md:grid-cols-2">
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-[0.14em] opacity-45">Source</dt>
+                    <dd>
+                      {source ? (
+                        <Link href={`/sources/${source.id}`} className="underline underline-offset-4">
+                          {source.title}
+                        </Link>
+                      ) : (
+                        mention.source_id
+                      )}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-[0.14em] opacity-45">Date</dt>
+                    <dd>{mention.date_text ?? "Not recorded"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-[0.14em] opacity-45">Address</dt>
+                    <dd>{mention.address_text ?? "Not recorded"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-[0.14em] opacity-45">Occupation</dt>
+                    <dd>{mention.occupation_text ?? "Not recorded"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-[0.14em] opacity-45">Relationship text</dt>
+                    <dd>{mention.relationship_text ?? "Not recorded"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-[0.14em] opacity-45">Locator</dt>
+                    <dd>{mention.page_or_locator ?? "Not recorded"}</dd>
+                  </div>
+                </dl>
+                {mention.notes && <p className="mt-4 leading-6 opacity-65">{mention.notes}</p>}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <p className="mt-8 text-sm opacity-50">No archival mentions are linked to this record yet.</p>
+      )}
+
+      <div className="mt-10">
+        <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-45">
+          Open research questions
+        </div>
+        {openItems.length > 0 ? (
+          <ul className="mt-4 space-y-3">
+            {openItems.map((item) => (
+              <li key={item.id} className="border-l-2 border-black/20 pl-4 text-sm leading-6">
+                <span className="text-[10px] uppercase tracking-[0.14em] opacity-50">
+                  {item.priority} priority · {item.status}
+                </span>
+                <div className="mt-1">{item.question}</div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-4 text-sm opacity-50">No open research questions for this record.</p>
+        )}
+      </div>
+    </section>
   );
 }

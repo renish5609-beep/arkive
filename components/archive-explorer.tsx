@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type {
+  ArchivalMention,
   HistoricalPerson,
   HistoricalPlace,
   HistoricalRelationship,
   HistoricalSource,
+  ResearchQueueItem,
 } from "@/lib/types";
 
 interface ArchiveExplorerProps {
@@ -14,6 +16,8 @@ interface ArchiveExplorerProps {
   places: HistoricalPlace[];
   relationships: HistoricalRelationship[];
   sources: HistoricalSource[];
+  mentions: ArchivalMention[];
+  researchQueue: ResearchQueueItem[];
 }
 
 function formatVerification(status: string) {
@@ -25,14 +29,25 @@ export default function ArchiveExplorer({
   places,
   relationships,
   sources,
+  mentions,
+  researchQueue,
 }: ArchiveExplorerProps) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("all");
+  const [mentionFilter, setMentionFilter] = useState("all");
+  const [researchFilter, setResearchFilter] = useState("all");
 
   const filteredPeople = useMemo(() => {
     const normalized = query.trim().toLowerCase();
 
     return people.filter((person) => {
+      const personMentions = mentions.filter(
+        (mention) => mention.linked_entity_id === person.id
+      );
+      const openResearch = researchQueue.filter(
+        (item) => item.status !== "resolved" && item.entity_ids.includes(person.id)
+      );
+
       const matchesQuery =
         normalized.length === 0 ||
         person.name.toLowerCase().includes(normalized) ||
@@ -40,14 +55,27 @@ export default function ArchiveExplorer({
           alias.toLowerCase().includes(normalized)
         ) ||
         person.occupation?.toLowerCase().includes(normalized) ||
-        person.notes.toLowerCase().includes(normalized);
+        person.notes.toLowerCase().includes(normalized) ||
+        personMentions.some((mention) =>
+          (mention.raw_name ?? "").toLowerCase().includes(normalized)
+        );
 
       const matchesStatus =
         status === "all" || person.verification_status === status;
 
-      return matchesQuery && matchesStatus;
+      const matchesMentions =
+        mentionFilter === "all" ||
+        (mentionFilter === "with" && personMentions.length > 0) ||
+        (mentionFilter === "without" && personMentions.length === 0);
+
+      const matchesResearch =
+        researchFilter === "all" ||
+        (researchFilter === "with" && openResearch.length > 0) ||
+        (researchFilter === "without" && openResearch.length === 0);
+
+      return matchesQuery && matchesStatus && matchesMentions && matchesResearch;
     });
-  }, [people, query, status]);
+  }, [people, query, status, mentionFilter, researchFilter, mentions, researchQueue]);
 
   const entityName = (entityId: string) => {
     return (
@@ -59,7 +87,7 @@ export default function ArchiveExplorer({
 
   return (
     <div>
-      <div className="grid gap-3 border-y border-black/10 py-5 md:grid-cols-[1fr_220px]">
+      <div className="grid gap-3 border-y border-black/10 py-5 md:grid-cols-[1fr_180px_180px_180px]">
         <label>
           <span className="sr-only">Search reconstructed records</span>
           <input
@@ -82,6 +110,32 @@ export default function ArchiveExplorer({
             <option value="human_reviewed">Human reviewed</option>
             <option value="machine_suggested">Machine suggested</option>
             <option value="unverified">Unverified</option>
+          </select>
+        </label>
+
+        <label>
+          <span className="sr-only">Filter by archival mentions</span>
+          <select
+            value={mentionFilter}
+            onChange={(event) => setMentionFilter(event.target.value)}
+            className="w-full border border-black/15 bg-[#f4f0e7] px-4 py-3 text-sm outline-none focus:border-black/40"
+          >
+            <option value="all">Any mention state</option>
+            <option value="with">Has archival mentions</option>
+            <option value="without">No archival mentions</option>
+          </select>
+        </label>
+
+        <label>
+          <span className="sr-only">Filter by open research questions</span>
+          <select
+            value={researchFilter}
+            onChange={(event) => setResearchFilter(event.target.value)}
+            className="w-full border border-black/15 bg-[#f4f0e7] px-4 py-3 text-sm outline-none focus:border-black/40"
+          >
+            <option value="all">Any research state</option>
+            <option value="with">Has open research questions</option>
+            <option value="without">No open research questions</option>
           </select>
         </label>
       </div>

@@ -97,3 +97,68 @@ export interface HistoricalRelationship {
   verification_status: VerificationStatus;
   notes: string;
 }
+
+export type MentionEntityType =
+  | "person"
+  | "place"
+  | "institution"
+  | "household"
+  | "unknown";
+
+export type MatchReviewStatus =
+  | "pending"
+  | "accepted"
+  | "rejected"
+  | "needs_more_evidence";
+
+export type MatchConfidence = "low" | "medium" | "high";
+
+export interface ArchivalMention {
+  id: string;
+  source_id: string;
+  entity_type: MentionEntityType;
+  raw_name: string | null;
+  normalized_name: string | null;
+  date_text: string | null;
+  address_text: string | null;
+  occupation_text: string | null;
+  relationship_text: string | null;
+  page_or_locator: string | null;
+  excerpt: string | null;
+  linked_entity_id: string | null;
+  verification_status: VerificationStatus;
+  notes: string;
+}
+
+export interface EntityMatchCandidate {
+  id: string;
+  left_mention_id: string;
+  right_mention_id: string;
+  proposed_entity_id: string | null;
+  confidence: MatchConfidence;
+  confidence_score: number;
+  reasons: string[];
+  conflicting_evidence: string[];
+  source_ids: string[];
+  review_status: MatchReviewStatus;
+  reviewer: string | null;
+  reviewed_date: string | null;
+  notes: string;
+}
+
+export interface ResearchQueueItem {
+  id: string;
+  kind:
+    | "person_identity"
+    | "place_identity"
+    | "relationship"
+    | "source_followup"
+    | "biographical_field";
+  entity_ids: string[];
+  mention_ids: string[];
+  question: string;
+  priority: "high" | "medium" | "low";
+  status: "open" | "blocked" | "resolved";
+  suggested_sources: string[];
+  notes: string;
+}

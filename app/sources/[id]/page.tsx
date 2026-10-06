@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { people, places, relationships, getSourceById } from "@/lib/quakertown";
+import {
+  getSourceById,
+  mentions,
+  people,
+  places,
+  relationships,
+} from "@/lib/quakertown";
 
 export default async function SourcePage({
   params,
@@ -21,6 +27,23 @@ export default async function SourcePage({
   const linkedRelationships = relationships.filter((relationship) =>
     relationship.source_ids.includes(source.id)
   );
+
+  const sourceMentions = mentions.filter((mention) => mention.source_id === source.id);
+  const unresolvedMentions = sourceMentions.filter(
+    (mention) => mention.linked_entity_id === null
+  );
+  const canonicalIds = [
+    ...new Set(
+      sourceMentions
+        .map((mention) => mention.linked_entity_id)
+        .filter((entityId): entityId is string => entityId !== null)
+    ),
+  ];
+  const canonicalNames = canonicalIds.map((entityId) => {
+    const person = people.find((item) => item.id === entityId);
+    const place = places.find((item) => item.id === entityId);
+    return { id: entityId, name: person?.name ?? place?.name ?? entityId };
+  });
 
   return (
     <main className="min-h-screen bg-[#f4f0e7] text-[#171714]">
@@ -120,6 +143,85 @@ export default async function SourcePage({
                     className="border border-black/15 px-3 py-2 text-sm hover:bg-black hover:text-white"
                   >
                     {person.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+        <section className="mt-16 border-t border-black/10 pt-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-45">
+            Evidence flow
+          </p>
+          <h2 className="mt-3 text-3xl font-medium">Mentions extracted from this source</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 opacity-60">
+            Each mention is a raw occurrence in this source. A mention is linked to a
+            canonical record only when the source supports the identity. Unlinked mentions
+            remain in the research queue.
+          </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <div className="border border-black/15 p-5">
+              <div className="text-3xl font-medium">{sourceMentions.length}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.14em] opacity-45">Mentions</div>
+            </div>
+            <div className="border border-black/15 p-5">
+              <div className="text-3xl font-medium">{sourceMentions.length - unresolvedMentions.length}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.14em] opacity-45">Linked to records</div>
+            </div>
+            <div className="border border-black/15 p-5">
+              <div className="text-3xl font-medium">{unresolvedMentions.length}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.14em] opacity-45">Unresolved</div>
+            </div>
+          </div>
+
+          {sourceMentions.length > 0 ? (
+            <ul className="mt-10 divide-y divide-black/10 border-y border-black/10">
+              {sourceMentions.map((mention) => {
+                const linked = canonicalNames.find((item) => item.id === mention.linked_entity_id);
+
+                return (
+                  <li key={mention.id} className="flex flex-wrap items-start justify-between gap-4 py-4 text-sm">
+                    <div>
+                      <div className="font-medium">{mention.raw_name ?? "Unnamed mention"}</div>
+                      <div className="mt-1 text-xs opacity-55">
+                        {mention.entity_type}
+                        {mention.date_text ? ` · ${mention.date_text}` : ""}
+                        {mention.page_or_locator ? ` · ${mention.page_or_locator}` : ""}
+                      </div>
+                    </div>
+                    <div className="text-xs">
+                      {linked ? (
+                        <Link href={`/records/${linked.id}`} className="underline underline-offset-4">
+                          Linked: {linked.name}
+                        </Link>
+                      ) : (
+                        <span className="border border-dashed border-black/30 px-2 py-1 uppercase tracking-[0.12em] opacity-70">
+                          Unresolved
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p className="mt-8 text-sm opacity-50">No archival mentions have been extracted from this source yet.</p>
+          )}
+
+          {canonicalNames.length > 0 && (
+            <div className="mt-8">
+              <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-45">
+                Canonical records supported by this source
+              </div>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {canonicalNames.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/records/${item.id}`}
+                    className="border border-black/15 px-3 py-2 text-sm hover:bg-black hover:text-white"
+                  >
+                    {item.name}
                   </Link>
                 ))}
               </div>

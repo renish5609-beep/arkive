@@ -4,14 +4,20 @@ import sourcesData from "@/data/projects/quakertown/sources.json";
 import relationshipsData from "@/data/projects/quakertown/relationships.json";
 import locationEvidenceData from "@/data/projects/quakertown/location-evidence.json";
 import georeferenceQueueData from "@/data/projects/quakertown/georeference-queue.json";
+import mentionsData from "@/data/projects/quakertown/mentions.json";
+import matchCandidatesData from "@/data/projects/quakertown/match-candidates.json";
+import researchQueueData from "@/data/projects/quakertown/research-queue.json";
 
 import type {
+  ArchivalMention,
+  EntityMatchCandidate,
   GeoreferenceQueueItem,
   HistoricalPerson,
   HistoricalPlace,
   HistoricalSource,
   HistoricalRelationship,
   LocationEvidence,
+  ResearchQueueItem,
 } from "./types";
 
 export const people = peopleData as HistoricalPerson[];
@@ -23,6 +29,32 @@ export const locationEvidence =
   locationEvidenceData as LocationEvidence[];
 export const georeferenceQueue =
   georeferenceQueueData as GeoreferenceQueueItem[];
+export const mentions = mentionsData as ArchivalMention[];
+export const matchCandidates =
+  matchCandidatesData as EntityMatchCandidate[];
+export const researchQueue = researchQueueData as ResearchQueueItem[];
+
+export function getMentionById(id: string) {
+  return mentions.find((mention) => mention.id === id);
+}
+
+export function getMentionsForEntity(entityId: string) {
+  return mentions.filter((mention) => mention.linked_entity_id === entityId);
+}
+
+export function getMatchCandidatesForMention(mentionId: string) {
+  return matchCandidates.filter(
+    (candidate) =>
+      candidate.left_mention_id === mentionId ||
+      candidate.right_mention_id === mentionId
+  );
+}
+
+export function getOpenResearchItemsForEntity(entityId: string) {
+  return researchQueue.filter(
+    (item) => item.status !== "resolved" && item.entity_ids.includes(entityId)
+  );
+}
 
 export function formatVerification(status: string) {
   return status.replaceAll("_", " ");

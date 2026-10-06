@@ -1,0 +1,151 @@
+[
+  {
+    "id": "candidate_mention_002__mention_003",
+    "left_mention_id": "mention_002",
+    "right_mention_id": "mention_003",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 10,
+    "reasons": [
+      "temporally compatible source context (+10)"
+    ],
+    "conflicting_evidence": [],
+    "source_ids": [
+      "source_002"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_005__mention_010",
+    "left_mention_id": "mention_005",
+    "right_mention_id": "mention_010",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 0,
+    "reasons": [],
+    "conflicting_evidence": [],
+    "source_ids": [
+      "source_003",
+      "source_005"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_006__mention_007",
+    "left_mention_id": "mention_006",
+    "right_mention_id": "mention_007",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 0,
+    "reasons": [],
+    "conflicting_evidence": [],
+    "source_ids": [
+      "source_004"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_006__mention_013",
+    "left_mention_id": "mention_006",
+    "right_mention_id": "mention_013",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 0,
+    "reasons": [],
+    "conflicting_evidence": [
+      "incompatible names (-50)"
+    ],
+    "source_ids": [
+      "source_004",
+      "source_006"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_007__mention_013",
+    "left_mention_id": "mention_007",
+    "right_mention_id": "mention_013",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 0,
+    "reasons": [],
+    "conflicting_evidence": [
+      "incompatible names (-50)"
+    ],
+    "source_ids": [
+      "source_004",
+      "source_006"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_008__mention_011",
+    "left_mention_id": "mention_008",
+    "right_mention_id": "mention_011",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 0,
+    "reasons": [],
+    "conflicting_evidence": [],
+    "source_ids": [
+      "source_004",
+      "source_006"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_008__mention_012",
+    "left_mention_id": "mention_008",
+    "right_mention_id": "mention_012",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 0,
+    "reasons": [],
+    "conflicting_evidence": [],
+    "source_ids": [
+      "source_004",
+      "source_006"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  },
+  {
+    "id": "candidate_mention_011__mention_012",
+    "left_mention_id": "mention_011",
+    "right_mention_id": "mention_012",
+    "proposed_entity_id": null,
+    "confidence": "low",
+    "confidence_score": 45,
+    "reasons": [
+      "exact normalized name (+45)"
+    ],
+    "conflicting_evidence": [],
+    "source_ids": [
+      "source_006"
+    ],
+    "review_status": "pending",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Heuristic match score for review prioritization. Not a historical verification."
+  }
+]

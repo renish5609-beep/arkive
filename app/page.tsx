@@ -4,9 +4,12 @@ import ReconstructionMapShell from "@/components/reconstruction-map-shell";
 import {
   georeferenceQueue,
   locationEvidence,
+  matchCandidates,
+  mentions,
   people,
   places,
   relationships,
+  researchQueue,
   sources,
 } from "@/lib/quakertown";
 import { validateQuakertownData } from "@/lib/validate-quakertown";
@@ -52,6 +55,9 @@ export default function Home() {
           <a href="#provenance" className="hover:opacity-60">
             Sources
           </a>
+          <Link href="/review" className="hover:opacity-60">
+            Review
+          </Link>
           <a href="#method" className="hover:opacity-60">
             Methodology
           </a>
@@ -260,6 +266,8 @@ export default function Home() {
           places={places}
           relationships={relationships}
           sources={sources}
+          mentions={mentions}
+          researchQueue={researchQueue}
         />
       </section>
 
@@ -398,6 +406,37 @@ export default function Home() {
               <div className="mt-1 text-xs uppercase tracking-wide opacity-50">
                 Open georeference tasks
               </div>
+            </div>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-4 border-t border-black/10 pt-6 md:grid-cols-3">
+            <div className="text-2xl font-medium">{mentions.length}</div>
+            <div className="text-xs uppercase tracking-wide opacity-50">Archival mentions</div>
+            <div className="text-2xl font-medium">
+              {matchCandidates.filter((c) => c.review_status === "pending").length}
+            </div>
+            <div className="text-xs uppercase tracking-wide opacity-50">Pending matches</div>
+            <div className="text-2xl font-medium">
+              {researchQueue.filter((item) => item.status !== "resolved").length}
+            </div>
+            <div className="text-xs uppercase tracking-wide opacity-50">Open research questions</div>
+          </div>
+
+          <div className="mt-10 border border-black/10 bg-[#f4f0e7]/45 p-5">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-45">
+              Dataset
+            </div>
+            <p className="mt-3 max-w-2xl text-sm leading-6 opacity-65">
+              Exports keep source IDs and verification metadata, so downstream users can
+              trace where each claim came from. Match scores are heuristics, not verification.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-4 text-sm">
+              <a href="/api/export/quakertown?format=json" className="underline underline-offset-4">JSON (full dataset)</a>
+              <a href="/api/export/quakertown?format=csv&entity=people" className="underline underline-offset-4">CSV people</a>
+              <a href="/api/export/quakertown?format=csv&entity=places" className="underline underline-offset-4">CSV places</a>
+              <a href="/api/export/quakertown?format=csv&entity=relationships" className="underline underline-offset-4">CSV relationships</a>
+              <a href="/api/export/quakertown?format=csv&entity=mentions" className="underline underline-offset-4">CSV mentions</a>
+              <a href="/api/export/quakertown?format=csv&entity=sources" className="underline underline-offset-4">CSV sources</a>
             </div>
           </div>
 
