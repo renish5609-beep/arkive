@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f0e7;
+  --foreground: #171714;
 }
 
 @theme inline {
@@ -12,15 +12,46 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #171714;
+  color: #f4f0e7;
+}
+
+.leaflet-container {
+  z-index: 0;
+  background: #d8d0bf;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #f4f0e7;
+  color: #171714;
+  border-radius: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border: 1px solid rgba(23, 23, 20, 0.18);
+  box-shadow: 0 8px 30px rgba(23, 23, 20, 0.14);
+}
+
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  background: #f4f0e7;
+  color: #171714;
+}
+
+.leaflet-control-attribution {
+  font-size: 9px;
 }
