@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 const STEPS = [
   { title: "Open the Quakertown project", href: "/projects/quakertown", text: "Read the scope statement and the project status counts first." },
-  { title: "Inspect one entity", href: "/records/person_004", text: "Look at William Evelyn Woods. Check the sources, verification state, and relationships." },
-  { title: "Open one source", href: "/sources/source_004", text: "Open The Woods House record and follow the link to the original archive." },
+  { title: "Inspect one entity", href: "/projects/quakertown/records/person_004", text: "Look at William Evelyn Woods. Check the sources, verification state, and relationships." },
+  { title: "Open one source", href: "/projects/quakertown/sources/source_004", text: "Open The Woods House record and follow the link to the original archive." },
   { title: "Inspect map confidence", href: "/projects/quakertown#map", text: "Compare the exact marker with the places that are still unresolved, then read why they are withheld." },
   { title: "Download the dataset", href: "/projects/quakertown#dataset", text: "Download the JSON export and check that source IDs are present." },
 ];

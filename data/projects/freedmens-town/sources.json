@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ft_source_001",
+    "title": "Freedmen's Town Historic District",
+    "source_type": "government_record",
+    "creator": "Texas Historical Commission",
+    "date": "1985-01-17",
+    "archive": "Texas Historical Commission Historic Sites Atlas",
+    "url": "https://atlas.thc.texas.gov/Details/2085000186",
+    "citation": "Texas Historical Commission, \"Freedmen's Town Historic District,\" Texas Historic Sites Atlas, record 2085000186.",
+    "rights": null,
+    "accessed_date": "2026-10-07",
+    "notes": "Official state atlas entry giving the district's National Register listing date (January 17, 1985), county and city location, official boundary description, and significance categories (Commerce; Ethnic Heritage - Black; Architecture)."
+  },
+  {
+    "id": "ft_source_002",
+    "title": "Freedmen's Town Historic District National Register of Historic Places nomination form",
+    "source_type": "government_record",
+    "creator": "Texas Historical Commission",
+    "date": null,
+    "archive": "Texas Historical Commission",
+    "url": "https://www.thc.texas.gov/public/upload/preserve/national_register/final/FreedmensNR.pdf",
+    "citation": "Freedmen's Town Historic District, National Register of Historic Places Nomination Form, Texas Historical Commission.",
+    "rights": null,
+    "accessed_date": "2026-10-07",
+    "notes": "The official nomination form. Confirmed to exist and downloaded (9.7 MB PDF from the Texas Historical Commission server), but it is a scanned document with no extractable text layer; automated text extraction (pdftotext) returned no content in this session, and no OCR tool was available. No specific claim in this dataset is drawn from this document's content. It is listed here for provenance only. See research item ft_research_005."
+  },
+  {
+    "id": "ft_source_003",
+    "title": "District Listed On Register (The Medallion, Vol. 22, No. 3, March 1985)",
+    "source_type": "historical_periodical",
+    "creator": "Texas Historical Commission",
+    "date": "1985-03",
+    "archive": "The Portal to Texas History (University of North Texas Libraries)",
+    "url": "https://texashistory.unt.edu/ark:/67531/metapth1861805/m1/5/",
+    "citation": "\"District Listed On Register,\" The Medallion, vol. 22, no. 3 (March 1985), p. 5, Texas Historical Commission, The Portal to Texas History.",
+    "rights": null,
+    "accessed_date": "2026-10-07",
+    "notes": "Short news article in the Texas Historical Commission's own newsletter, announcing the district's National Register listing. States the district's founding just after emancipation on the southern banks of Buffalo Bayou, its growth into the economic, spiritual, and cultural center of Houston's Black community, its early-20th-century boundaries, three institutions within it (Antioch Baptist Church, the original Colored High School, and the historic Black Carnegie Library Building), the construction date range of its buildings (1870-1935), and the post-1940 reduction of the neighborhood by urban renewal and highway construction."
+  }
+]

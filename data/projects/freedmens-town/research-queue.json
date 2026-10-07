@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ft_research_001",
+    "kind": "place_identity",
+    "entity_ids": ["ft_place_001"],
+    "mention_ids": ["ft_mention_001", "ft_mention_002"],
+    "question": "Which surviving structures in the National Register district can be matched confidently to current parcels?",
+    "priority": "high",
+    "status": "open",
+    "suggested_sources": [
+      "National Register nomination form (requires OCR or manual review; see ft_source_002)",
+      "Harris County Appraisal District GIS data"
+    ],
+    "notes": "No canonical structure-to-parcel matches have been made yet."
+  },
+  {
+    "id": "ft_research_002",
+    "kind": "person_identity",
+    "entity_ids": ["ft_place_001"],
+    "mention_ids": [],
+    "question": "What archival records document specific residents or households in the Freedmen's Town Historic District?",
+    "priority": "high",
+    "status": "open",
+    "suggested_sources": [
+      "Freedmen's Town Association Collection, RG.F.0023, Houston Metropolitan Research Center / Houston Public Library",
+      "Period Houston city directories",
+      "Federal census schedules (accessible copies)"
+    ],
+    "notes": "No person records exist in this project yet. The sources read so far document the district and its institutions, not individual residents."
+  },
+  {
+    "id": "ft_research_003",
+    "kind": "place_identity",
+    "entity_ids": ["ft_place_002", "ft_place_003", "ft_place_004"],
+    "mention_ids": ["ft_mention_003", "ft_mention_004", "ft_mention_005"],
+    "question": "Which institutions named in the nomination have precise historical addresses supported by period records?",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "National Register nomination form (requires OCR or manual review; see ft_source_002)",
+      "Sanborn or other period maps of Houston's Fourth Ward"
+    ],
+    "notes": "Antioch Baptist Church, the original Colored High School, and the Black Carnegie Library Building are all named but without addresses in the sources read so far."
+  },
+  {
+    "id": "ft_research_004",
+    "kind": "source_followup",
+    "entity_ids": [],
+    "mention_ids": [],
+    "question": "Can the Freedmen's Town Association Collection (RG.F.0023) finding aid be accessed with a real browser, and which property inventories or historic-district documents does it describe?",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "Freedmen's Town Association Collection, RG.F.0023, Houston Metropolitan Research Center / Houston Public Library: https://txarchives.org/houpub/finding_aids/00163.xml",
+      "Finding aid subject index, University of Houston Libraries: https://findingaids.lib.uh.edu/subjects/504"
+    ],
+    "notes": "Both URLs were attempted during this research session. The Houston Metropolitan Research Center finding aid returned a JavaScript proof-of-work bot challenge (Anubis) that could not be solved without a real browser. The University of Houston Libraries page returned HTTP 403 Forbidden. Neither was read."
+  },
+  {
+    "id": "ft_research_005",
+    "kind": "source_followup",
+    "entity_ids": [],
+    "mention_ids": [],
+    "question": "Can the National Register nomination form (FreedmensNR.pdf) be read via OCR or manual review to extract its full text?",
+    "priority": "medium",
+    "status": "open",
+    "suggested_sources": [
+      "Texas Historical Commission National Register nomination form: https://www.thc.texas.gov/public/upload/preserve/national_register/final/FreedmensNR.pdf"
+    ],
+    "notes": "The 9.7 MB PDF was downloaded successfully, confirming it exists, but it is a scanned document with no embedded text layer. Automated extraction (pdftotext) returned no text in this session, and no OCR tool was available. It likely contains the richest primary-source detail for this project (named residents, specific addresses, and detailed historical narrative) and should be revisited with OCR tooling or a manual reading."
+  }
+]

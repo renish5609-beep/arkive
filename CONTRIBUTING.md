@@ -18,7 +18,7 @@ Thank you for helping. Arkive is a research project, and two kinds of contributi
 
 ## Historical-data contributions
 
-These rules apply to every change to `data/projects/quakertown/`, and to any proposed new record.
+These rules apply to every change under `data/projects/<slug>/` for any project, and to any proposed new record. See [the project template](docs/project-template/README.md) for how to start a new project.
 
 - **Source provenance.** Every person, place, relationship, and claim must cite at least one source ID that exists in `sources.json`.
 - **No inferred claims without evidence.** Do not infer dates, occupations, family ties, ownership, or addresses unless a source states them.
@@ -43,7 +43,7 @@ npm run audit:provenance
 
 ## Sensitive historical material
 
-Quakertown's history includes displacement, segregation, and the loss of homes. Write about individuals and communities with care:
+Arkive's projects document displacement, segregation, and the loss of homes and institutions. Write about individuals and communities with care:
 
 - Do not sensationalize people or their suffering.
 - Preserve the source context, including who is speaking and when.

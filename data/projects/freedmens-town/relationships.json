@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ft_relationship_001",
+    "from_entity_id": "ft_place_001",
+    "to_entity_id": "ft_place_002",
+    "relationship_type": "contains",
+    "start_year": null,
+    "end_year": null,
+    "source_ids": ["ft_source_003"],
+    "verification_status": "human_reviewed",
+    "notes": "The Texas Historical Commission's 1985 newsletter names Antioch Baptist Church as one of the institutions within the Freedmen's Town Historic District's boundaries."
+  },
+  {
+    "id": "ft_relationship_002",
+    "from_entity_id": "ft_place_001",
+    "to_entity_id": "ft_place_003",
+    "relationship_type": "contains",
+    "start_year": null,
+    "end_year": null,
+    "source_ids": ["ft_source_003"],
+    "verification_status": "human_reviewed",
+    "notes": "The Texas Historical Commission's 1985 newsletter names the original Colored High School as one of the institutions within the Freedmen's Town Historic District's boundaries."
+  },
+  {
+    "id": "ft_relationship_003",
+    "from_entity_id": "ft_place_001",
+    "to_entity_id": "ft_place_004",
+    "relationship_type": "contains",
+    "start_year": null,
+    "end_year": null,
+    "source_ids": ["ft_source_003"],
+    "verification_status": "human_reviewed",
+    "notes": "The Texas Historical Commission's 1985 newsletter names the historic Black Carnegie Library Building as one of the institutions within the Freedmen's Town Historic District's boundaries."
+  }
+]

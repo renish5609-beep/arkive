@@ -2,11 +2,10 @@ import Link from "next/link";
 import { SITE } from "@/lib/site";
 
 const NAV_LINKS = [
-  { href: "/projects/quakertown", label: "Project" },
-  { href: "/projects/quakertown#archive", label: "Archive" },
-  { href: "/projects/quakertown#sources", label: "Sources" },
+  { href: "/projects", label: "Projects" },
   { href: "/about", label: "Methodology" },
-  { href: "/projects/quakertown#dataset", label: "Dataset" },
+  { href: "/start", label: "Start" },
+  { href: "/demo", label: "Demo" },
 ];
 
 const linkClass = "hover:underline underline-offset-4 focus-visible:underline";

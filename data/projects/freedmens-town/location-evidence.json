@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ft_location_evidence_001",
+    "place_id": "ft_place_001",
+    "status": "unresolved",
+    "method": "intersection",
+    "latitude": null,
+    "longitude": null,
+    "radius_meters": null,
+    "source_ids": ["ft_source_001"],
+    "evidence_text": "The Texas Historical Commission's atlas gives the official National Register boundary as \"Roughly Bounded by Genesse, West Dallas, Arthur and W. Gray Sts.\"",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "A street-bounded boundary description is not a coordinate. Converting it to a defensible polygon or centroid requires Harris County parcel or GIS data, which has not yet been consulted. Do not infer an arbitrary centroid from the boundary streets alone."
+  },
+  {
+    "id": "ft_location_evidence_002",
+    "place_id": "ft_place_002",
+    "status": "unresolved",
+    "method": "relative_description",
+    "latitude": null,
+    "longitude": null,
+    "radius_meters": null,
+    "source_ids": ["ft_source_003"],
+    "evidence_text": "Named as one of the institutions within the Freedmen's Town Historic District in the Texas Historical Commission's 1985 newsletter. No address is given.",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Known only to be within the district's boundaries. A specific historical or current address has not been found in the sources read so far."
+  },
+  {
+    "id": "ft_location_evidence_003",
+    "place_id": "ft_place_003",
+    "status": "unresolved",
+    "method": "relative_description",
+    "latitude": null,
+    "longitude": null,
+    "radius_meters": null,
+    "source_ids": ["ft_source_003"],
+    "evidence_text": "Named as one of the institutions within the Freedmen's Town Historic District in the Texas Historical Commission's 1985 newsletter. No address is given.",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Known only to be within the district's boundaries. A specific historical or current address has not been found in the sources read so far."
+  },
+  {
+    "id": "ft_location_evidence_004",
+    "place_id": "ft_place_004",
+    "status": "unresolved",
+    "method": "relative_description",
+    "latitude": null,
+    "longitude": null,
+    "radius_meters": null,
+    "source_ids": ["ft_source_003"],
+    "evidence_text": "Named as one of the institutions within the Freedmen's Town Historic District in the Texas Historical Commission's 1985 newsletter. No address is given.",
+    "reviewer": null,
+    "reviewed_date": null,
+    "notes": "Known only to be within the district's boundaries. A specific historical or current address has not been found in the sources read so far."
+  }
+]

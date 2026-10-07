@@ -1,0 +1,17 @@
+[
+  {
+    "_comment": "ILLUSTRATIVE EXAMPLE ONLY. Not a real place.",
+    "id": "place_001",
+    "name": "Example Place",
+    "historical_address": "An address or location description exactly as the source states it, or null",
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "residence",
+    "source_ids": ["source_001"],
+    "verification_status": "unverified",
+    "notes": "State exactly what source_001 supports about this place.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": []
+  }
+]

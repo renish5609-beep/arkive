@@ -1,0 +1,19 @@
+[
+  {
+    "_comment": "ILLUSTRATIVE EXAMPLE ONLY. raw_name should be the source's own wording.",
+    "id": "mention_001",
+    "source_id": "source_001",
+    "entity_type": "person",
+    "raw_name": "Example Person",
+    "normalized_name": "example person",
+    "date_text": null,
+    "address_text": null,
+    "occupation_text": null,
+    "relationship_text": null,
+    "page_or_locator": null,
+    "excerpt": null,
+    "linked_entity_id": null,
+    "verification_status": "unverified",
+    "notes": "Link to a canonical entity (set linked_entity_id) only once a source supports that identity. Leave it null while uncertain."
+  }
+]

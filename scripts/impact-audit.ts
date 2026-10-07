@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { validateExternalReviews } from "../lib/external-reviews";
+import { listProjectSlugs } from "../lib/projects";
 import type { ExternalReview, OutreachLogItem } from "../lib/types";
 
 // Fails when published impact counts are larger than the recorded evidence.
@@ -37,7 +38,8 @@ for (const key of ["external_reviews", "educators_contacted", "classrooms_using"
 }
 
 // Review records are the source of truth for external reviews
-for (const error of validateExternalReviews(reviews)) failures.push(`External review ${error}`);
+const knownProjectSlugs = listProjectSlugs();
+for (const error of validateExternalReviews(reviews, knownProjectSlugs)) failures.push(`External review ${error}`);
 
 if (impact.external_reviews !== reviews.length && !hasNote("external_reviews")) {
   failures.push(
@@ -57,6 +59,13 @@ outreach.forEach((item, index) => {
   if (!validMethods.includes(item.contact_method)) failures.push(`${label}: unknown contact_method "${item.contact_method}"`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date_sent)) failures.push(`${label}: date_sent must be YYYY-MM-DD`);
   if (!item.ask || item.ask.trim() === "") failures.push(`${label}: ask is empty`);
+  if (
+    item.project_slug !== null &&
+    knownProjectSlugs.length > 0 &&
+    !knownProjectSlugs.includes(item.project_slug)
+  ) {
+    failures.push(`${label}: project_slug "${item.project_slug}" does not match a known project`);
+  }
 });
 
 const educatorOutreach = outreach.filter((item) => item.category === "educator").length;

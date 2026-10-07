@@ -1,0 +1,75 @@
+[
+  {
+    "id": "ft_place_001",
+    "name": "Freedmen's Town Historic District",
+    "historical_address": "Roughly bounded by Genesse, West Dallas, Arthur, and West Gray Streets, Houston, Texas",
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "historic_district",
+    "source_ids": [
+      "ft_source_001",
+      "ft_source_003"
+    ],
+    "verification_status": "human_reviewed",
+    "notes": "A 40-block historic district in Houston's old Fourth Ward, founded just after emancipation on the southern banks of Buffalo Bayou. Listed on the National Register of Historic Places on January 17, 1985. By the second decade of the 20th century the broader community stretched from Buffalo Bayou south to Sutton Street and west from Milam and Travis Streets to Taft Street; the formally listed National Register boundary (per the state atlas) is narrower, roughly bounded by Genesse, West Dallas, Arthur, and West Gray Streets.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": [
+      "ft_location_evidence_001"
+    ]
+  },
+  {
+    "id": "ft_place_002",
+    "name": "Antioch Baptist Church",
+    "historical_address": null,
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "church",
+    "source_ids": [
+      "ft_source_003"
+    ],
+    "verification_status": "human_reviewed",
+    "notes": "Named in the Texas Historical Commission's 1985 newsletter as one of the institutions within the Freedmen's Town Historic District. No street address is given in the source read so far.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": [
+      "ft_location_evidence_002"
+    ]
+  },
+  {
+    "id": "ft_place_003",
+    "name": "Original Colored High School",
+    "historical_address": null,
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "school",
+    "source_ids": [
+      "ft_source_003"
+    ],
+    "verification_status": "human_reviewed",
+    "notes": "Named in the Texas Historical Commission's 1985 newsletter as \"the original Colored High School,\" one of the institutions within the Freedmen's Town Historic District. The source's own wording (\"original\") is preserved; no street address is given in the source read so far.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": [
+      "ft_location_evidence_003"
+    ]
+  },
+  {
+    "id": "ft_place_004",
+    "name": "Black Carnegie Library Building",
+    "historical_address": null,
+    "modern_address": null,
+    "latitude": null,
+    "longitude": null,
+    "place_type": "library",
+    "source_ids": [
+      "ft_source_003"
+    ],
+    "verification_status": "human_reviewed",
+    "notes": "Named in the Texas Historical Commission's 1985 newsletter as \"the historic black Carnegie Library Building,\" one of the institutions within the Freedmen's Town Historic District. No street address is given in the source read so far.",
+    "georeference_status": "unresolved",
+    "location_evidence_ids": [
+      "ft_location_evidence_004"
+    ]
+  }
+]

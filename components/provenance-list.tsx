@@ -3,7 +3,13 @@ import type { HistoricalSource } from "@/lib/types";
 
 // Lists every source with a link to its Arkive provenance page and, where
 // one exists, the original external archive (opened in a new tab).
-export default function ProvenanceList({ sources }: { sources: HistoricalSource[] }) {
+export default function ProvenanceList({
+  projectSlug,
+  sources,
+}: {
+  projectSlug: string;
+  sources: HistoricalSource[];
+}) {
   return (
     <ul className="grid gap-4 md:grid-cols-2">
       {sources.map((source) => (
@@ -15,7 +21,7 @@ export default function ProvenanceList({ sources }: { sources: HistoricalSource[
           {source.archive && <p className="mt-2 text-sm opacity-70">{source.archive}</p>}
           {source.notes && <p className="mt-4 text-sm leading-7 opacity-80">{source.notes}</p>}
           <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-            <Link href={`/sources/${source.id}`} className="font-medium underline underline-offset-4">
+            <Link href={`/projects/${projectSlug}/sources/${source.id}`} className="font-medium underline underline-offset-4">
               Source provenance record
             </Link>
             {source.url && (

@@ -10,7 +10,7 @@ import {
   TileLayer,
 } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
-import { isMappablePlace } from "@/lib/quakertown";
+import { isMappablePlace } from "@/lib/geo";
 import type {
   HistoricalPlace,
   HistoricalRelationship,
@@ -25,7 +25,10 @@ interface ReconstructionMapProps {
   locationEvidence: LocationEvidence[];
 }
 
-const DENTON_CENTER: LatLngExpression = [33.2148, -97.1331];
+// Used only when a project has mappable places but, for some reason, none
+// of their coordinates could be averaged (should not happen in practice).
+// Arbitrary and never shown to the user as a place name.
+const FALLBACK_CENTER: LatLngExpression = [20, 0];
 
 function sourceNames(sourceIds: string[], sources: HistoricalSource[]) {
   return sourceIds
@@ -61,7 +64,7 @@ export default function ReconstructionMap({
             0
           ) / mappablePlaces.length,
         ]
-      : DENTON_CENTER;
+      : FALLBACK_CENTER;
 
   const geographicRelationships = relationships.flatMap((relationship) => {
     const from = placeLookup.get(relationship.from_entity_id);

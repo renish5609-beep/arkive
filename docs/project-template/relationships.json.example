@@ -1,0 +1,14 @@
+[
+  {
+    "_comment": "ILLUSTRATIVE EXAMPLE ONLY. Use only a relationship your source directly states.",
+    "id": "relationship_001",
+    "from_entity_id": "person_001",
+    "to_entity_id": "place_001",
+    "relationship_type": "resided_at",
+    "start_year": null,
+    "end_year": null,
+    "source_ids": ["source_001"],
+    "verification_status": "unverified",
+    "notes": "State exactly what source_001 supports about this relationship."
+  }
+]

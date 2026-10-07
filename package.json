@@ -19,7 +19,11 @@
     "check:release": "npm run validate:data && npm run audit:provenance && npm run research:status && npm run georef:status && npm run review:status && npm run lint && npm run build && npm run release:audit",
     "outreach:status": "tsx scripts/outreach-status.ts",
     "audit:impact": "tsx scripts/impact-audit.ts",
-    "metrics:generate": "tsx scripts/generate-application-metrics.ts"
+    "metrics:generate": "tsx scripts/generate-application-metrics.ts",
+    "validate:project": "tsx scripts/validate-data.ts",
+    "add:mention": "tsx scripts/add-mention.ts",
+    "create:project": "tsx scripts/create-project.ts",
+    "projects:status": "tsx scripts/projects-status.ts"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",

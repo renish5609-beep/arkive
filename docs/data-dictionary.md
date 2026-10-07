@@ -1,12 +1,45 @@
 # Data dictionary
 
-This document describes the structured data behind Arkive. The files live in `data/projects/quakertown/`, and the TypeScript types live in `lib/types.ts`. Arkive is an open data project as well as a website, so every field is described here.
+This document describes the structured data behind Arkive. Arkive holds more than one reconstruction project; each project's files live in its own directory under `data/projects/<slug>/` (for example `data/projects/quakertown/`), and the TypeScript types live in `lib/types.ts`. Arkive is an open data project as well as a website, so every field is described here.
 
 Conventions used below:
 
 - **Nullable** means the field may be `null`. A `null` value means the information is not recorded. It does not mean the answer is "no".
-- **ID fields** point to other records. Every ID must exist in the dataset. `npm run validate:data` checks this.
+- **ID fields** point to other records. Every ID must exist, but only within the same project. See "Project slug namespace" below.
 - **Verification states** are described in the [provenance policy](provenance-policy.md).
+
+## HistoricalProjectManifest
+
+File: `project.json`, one per project directory, at `data/projects/<slug>/project.json`.
+
+| Field | Type | Nullable | Meaning | Example |
+| --- | --- | --- | --- | --- |
+| `slug` | string | no | The project's directory name and URL segment. Must match the directory it lives in. | `freedmens-town` |
+| `project_number` | string | no | A short identifying number, unique across all projects. | `002` |
+| `title` | string | no | Full project title, used as the page heading. | `Freedmen's Town Reconstructed` |
+| `short_title` | string | no | A shorter form, for compact display. | `Freedmen's Town` |
+| `location` | string | no | Where the reconstruction is set. | `Houston, Texas` |
+| `summary` | string | no | One or two sentences describing the project. | `A small source-traceable reconstruction of Houston's historic Freedmen's Town...` |
+| `historical_context` | string | no | A short paragraph of historical background, supported by the project's sources. | See `data/projects/freedmens-town/project.json`. |
+| `status` | ProjectStatus | no | `active_research`, `pilot`, or `archived`. | `pilot` |
+| `date_range` | string | yes | The period the reconstruction covers, in plain text. | `1865-mid 20th century` |
+| `featured` | boolean | no | Whether the project is highlighted on the homepage and project list. | `true` |
+| `source_note` | string | no | What kind of sources the project currently relies on, and how thoroughly they have been read. | See any `project.json`. |
+| `research_scope` | string | no | A plain statement of what the reconstruction does and does not yet cover. | `This is a portability pilot, not a comprehensive reconstruction...` |
+
+## HistoricalProjectData
+
+Not a file on disk. This is the shape `lib/projects.ts` assembles in memory after reading a project's ten files: `manifest` (from `project.json`), plus `people`, `places`, `sources`, `relationships`, `locationEvidence`, `georeferenceQueue`, `mentions`, `matchCandidates`, and `researchQueue` (one array per remaining file). Every function that operates on project data takes this shape as its first argument, so project-scoped logic never has to be written twice.
+
+## Project slug namespace
+
+A project's slug is the boundary for every ID in its data. Validation builds its ID sets from one project's files at a time, so:
+
+- the same entity ID (for example `place_001`) may exist in two different projects without colliding;
+- a relationship, mention, or match candidate in one project can never reference a record in another project, even accidentally — such a reference simply fails as "missing", because the other project's IDs are never in scope;
+- no cross-project identity merging exists yet. The same historical person appearing in two projects remains two separate records.
+
+The directory contract for a project is fixed. Every project under `data/projects/<slug>/` must contain exactly these ten files: `project.json`, `people.json`, `places.json`, `sources.json`, `relationships.json`, `location-evidence.json`, `georeference-queue.json`, `mentions.json`, `match-candidates.json`, `research-queue.json`. Projects are discovered from this directory at runtime; adding one never requires a registry edit. See the top-level README for the `create:project` command that scaffolds a new one.
 
 ## Shared values
 
@@ -211,3 +244,22 @@ The examples in this table are illustrative. They are not real reviews, and the 
 | `changes_made` | string[] | no (may be empty) | Changes Arkive made in response. | `["Clarified the map legend"]` |
 | `permission_to_name` | boolean | no | Whether the reviewer agreed to be named publicly. | `false` |
 | `public_name` | string | yes | Name to show publicly. Only when `permission_to_name` is true. | `null` |
+| `project_slug` | string | yes | `null` for a platform-wide review of Arkive in general, or a project slug if the review was about one specific project. | `"quakertown"` |
+
+## OutreachLogItem
+
+File: `data/outreach-log.json` (an array; empty until outreach is actually sent)
+
+| Field | Type | Nullable | Meaning | Example |
+| --- | --- | --- | --- | --- |
+| `id` | string | no | Stable identifier for the outreach entry. | `outreach_001` |
+| `category` | `historian`, `educator`, `archive`, `community`, or `digital_humanities` | no | Who was contacted. | `historian` |
+| `organization` | string | yes | Organization, if relevant and known. | `null` |
+| `contact_name` | string | yes | Name of the contact, if recorded. | `null` |
+| `contact_method` | `email`, `form`, `in_person`, or `other` | no | How they were contacted. | `email` |
+| `date_sent` | string | no | Date the outreach was sent, `YYYY-MM-DD`. | `2026-11-01` |
+| `ask` | string | no | What was asked of them. | `15-20 minute asynchronous review` |
+| `status` | `sent`, `replied`, `review_scheduled`, `review_completed`, `declined`, or `no_response` | no | Current state. | `sent` |
+| `follow_up_date` | string | yes | Date a follow-up is planned, `YYYY-MM-DD`. | `null` |
+| `notes` | string | no | Context. | `""` |
+| `project_slug` | string | yes | `null` for platform-wide outreach, or a project slug if the outreach was specifically about one project. | `null` |

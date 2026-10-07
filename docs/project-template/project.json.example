@@ -1,0 +1,15 @@
+{
+  "_comment": "ILLUSTRATIVE EXAMPLE ONLY. Not a real project, not real history. Generate a real manifest with `npm run create:project`.",
+  "slug": "example-town",
+  "project_number": "003",
+  "title": "Example Town Reconstructed",
+  "short_title": "Example Town",
+  "location": "Example, Texas",
+  "summary": "One sentence, supported by your actual sources, describing the reconstruction.",
+  "historical_context": "A short paragraph of historical context, written only from what your sources actually state. Do not invent dates, people, or events here.",
+  "status": "pilot",
+  "date_range": "1900-1950",
+  "featured": true,
+  "source_note": "State plainly which sources this project currently relies on, and how thoroughly they have been read (for example: short descriptions only, or full transcripts read).",
+  "research_scope": "State plainly what this reconstruction does and does not yet cover."
+}

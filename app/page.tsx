@@ -1,12 +1,19 @@
 import Link from "next/link";
 import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
-import { getProjectMetrics } from "@/lib/project-metrics";
-import { validateQuakertownData } from "@/lib/validate-quakertown";
+import { listProjectManifests, requireProject } from "@/lib/projects";
+import { validateAllProjects } from "@/lib/validate-project";
 
 export default function Home() {
-  const metrics = getProjectMetrics();
-  const dataHealth = validateQuakertownData();
+  const manifests = listProjectManifests();
+  const projects = manifests.map((manifest) => requireProject(manifest.slug));
+  const dataHealth = validateAllProjects(projects);
+
+  const totalMentions = projects.reduce((sum, project) => sum + project.mentions.length, 0);
+  const totalPendingMatches = projects.reduce(
+    (sum, project) => sum + project.matchCandidates.filter((c) => c.review_status === "pending").length,
+    0
+  );
 
   return (
     <div className="min-h-screen bg-[#f4f0e7] text-[#171714]">
@@ -26,8 +33,8 @@ export default function Home() {
             uncertainty, and source provenance behind every connection.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/projects/quakertown" className="bg-black px-6 py-3 text-sm text-white hover:opacity-80">
-              Explore Quakertown Reconstructed
+            <Link href="/projects" className="bg-black px-6 py-3 text-sm text-white hover:opacity-80">
+              Explore projects
             </Link>
             <Link href="/about" className="border border-black/20 px-6 py-3 text-sm hover:bg-black hover:text-white">
               How Arkive works
@@ -50,7 +57,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">What Quakertown Reconstructed is</h3>
                 <p className="mt-4 leading-7 opacity-80">
-                  The first case study. It reconstructs Denton, Texas&apos;s historic Black
+                  The flagship case study. It reconstructs Denton, Texas&apos;s historic Black
                   Quakertown community and the displacement of its residents during the 1920s,
                   using oral histories, government records, and archival photographs.
                 </p>
@@ -67,35 +74,49 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-16 md:px-12" aria-labelledby="project-summary">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-60">Project 001</p>
-          <h2 id="project-summary" className="mt-3 text-3xl font-medium">Quakertown Reconstructed</h2>
-          <div className="mt-8 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-4">
-            <div>
-              <div className="text-3xl font-medium">{metrics.people}</div>
-              <div className="mt-1 text-xs uppercase tracking-wide opacity-60">People</div>
-            </div>
-            <div>
-              <div className="text-3xl font-medium">{metrics.places}</div>
-              <div className="mt-1 text-xs uppercase tracking-wide opacity-60">Places</div>
-            </div>
-            <div>
-              <div className="text-3xl font-medium">{metrics.sources}</div>
-              <div className="mt-1 text-xs uppercase tracking-wide opacity-60">Sources</div>
-            </div>
-            <div>
-              <div className="text-3xl font-medium">{metrics.relationships}</div>
-              <div className="mt-1 text-xs uppercase tracking-wide opacity-60">Relationships</div>
-            </div>
-          </div>
-          <p className="mt-8 max-w-3xl text-sm leading-6 opacity-75">
-            Historical locations remain unresolved until the evidence supports a defensible
-            placement. Currently {metrics.exactPlaces} place is exact, {metrics.approximatePlaces}{" "}
-            approximate, and {metrics.unresolvedPlaces} unresolved.
+        <section className="mx-auto max-w-7xl px-6 py-16 md:px-12" aria-labelledby="multi-project-heading">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-60">
+            Built for more than one community
           </p>
-          <Link href="/projects/quakertown" className="mt-8 inline-block text-sm font-medium underline underline-offset-4">
-            Open the Quakertown project
-          </Link>
+          <h2 id="multi-project-heading" className="mt-3 text-3xl font-medium">
+            A reusable reconstruction framework
+          </h2>
+          <p className="mt-5 max-w-3xl border-l-4 border-black pl-5 text-lg leading-8 opacity-85">
+            Arkive is designed to reuse the same evidence, review, mapping, and export workflow
+            across different local histories. Quakertown is the first full reconstruction;
+            Freedmen&apos;s Town is a second portability case study.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {manifests.map((manifest) => (
+              <Link
+                key={manifest.slug}
+                href={`/projects/${manifest.slug}`}
+                className="block border border-black/15 bg-white/30 p-6 transition hover:bg-white/55"
+              >
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xs uppercase tracking-[0.14em] opacity-60">
+                    Project {manifest.project_number}
+                  </span>
+                  <span className="border border-black/15 px-2 py-1 text-[10px] uppercase tracking-[0.14em] opacity-60">
+                    {manifest.status.replaceAll("_", " ")}
+                  </span>
+                </div>
+                <h3 className="mt-3 text-2xl font-medium">{manifest.title}</h3>
+                <p className="mt-2 text-sm opacity-60">{manifest.location}</p>
+                <p className="mt-4 leading-7 opacity-80">{manifest.summary}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link href="/projects" className="bg-black px-6 py-3 text-sm text-white hover:opacity-80">
+              Explore projects
+            </Link>
+            <Link href="/start" className="border border-black/20 px-6 py-3 text-sm hover:bg-black hover:text-white">
+              Start a reconstruction
+            </Link>
+          </div>
         </section>
 
         <section className="border-t border-black/10 px-6 py-16 md:px-12" aria-labelledby="data-health">
@@ -108,6 +129,7 @@ export default function Home() {
                 {dataHealth.valid ? "Valid" : "Issues detected"}
               </span>
             </div>
+            <p className="mt-3 text-sm opacity-60">Across {manifests.length} published projects.</p>
             <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 md:grid-cols-4">
               <div>
                 <dt className="text-xs uppercase tracking-wide opacity-60">Validation errors</dt>
@@ -119,11 +141,11 @@ export default function Home() {
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-wide opacity-60">Archival mentions</dt>
-                <dd className="mt-1 text-2xl font-medium">{metrics.mentions}</dd>
+                <dd className="mt-1 text-2xl font-medium">{totalMentions}</dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-wide opacity-60">Pending identity matches</dt>
-                <dd className="mt-1 text-2xl font-medium">{metrics.pendingMatches}</dd>
+                <dd className="mt-1 text-2xl font-medium">{totalPendingMatches}</dd>
               </div>
             </dl>
             {dataHealth.errors.length > 0 && (

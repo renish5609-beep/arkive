@@ -1,0 +1,16 @@
+[
+  {
+    "_comment": "ILLUSTRATIVE EXAMPLE ONLY. Replace with a real, citable source.",
+    "id": "source_001",
+    "title": "Example Source Title",
+    "source_type": "government_record",
+    "creator": "Name of the author or creating body, or null",
+    "date": "1920-01-01",
+    "archive": "Name of the holding institution",
+    "url": "https://example.gov/source",
+    "citation": "A full citation for this source.",
+    "rights": null,
+    "accessed_date": "2026-01-01",
+    "notes": "What this source actually documents, in your own words. Be specific about what it does and does not support."
+  }
+]

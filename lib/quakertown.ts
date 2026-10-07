@@ -1,113 +1,83 @@
-import peopleData from "@/data/projects/quakertown/people.json";
-import placesData from "@/data/projects/quakertown/places.json";
-import sourcesData from "@/data/projects/quakertown/sources.json";
-import relationshipsData from "@/data/projects/quakertown/relationships.json";
-import locationEvidenceData from "@/data/projects/quakertown/location-evidence.json";
-import georeferenceQueueData from "@/data/projects/quakertown/georeference-queue.json";
-import mentionsData from "@/data/projects/quakertown/mentions.json";
-import matchCandidatesData from "@/data/projects/quakertown/match-candidates.json";
-import researchQueueData from "@/data/projects/quakertown/research-queue.json";
+// Compatibility shim for pre-multiproject imports.
+// New code should use lib/projects.ts.
+import { isMappablePlace } from "@/lib/geo";
+import { formatVerification } from "@/lib/format";
+import {
+  getProjectEntityName,
+  getProjectGeoreferenceQueueItemForPlace,
+  getProjectLocationEvidenceForPlace,
+  getProjectMentionsForEntity,
+  getProjectOpenResearchItemsForEntity,
+  getProjectPersonById,
+  getProjectPlaceById,
+  getProjectRelationshipsForEntity,
+  getProjectSourceById,
+  getProjectSourcesForIds,
+  requireProject,
+} from "@/lib/projects";
 
-import type {
-  ArchivalMention,
-  EntityMatchCandidate,
-  GeoreferenceQueueItem,
-  HistoricalPerson,
-  HistoricalPlace,
-  HistoricalSource,
-  HistoricalRelationship,
-  LocationEvidence,
-  ResearchQueueItem,
-} from "./types";
+const quakertown = requireProject("quakertown");
 
-export const people = peopleData as HistoricalPerson[];
-export const places = placesData as HistoricalPlace[];
-export const sources = sourcesData as HistoricalSource[];
-export const relationships =
-  relationshipsData as HistoricalRelationship[];
-export const locationEvidence =
-  locationEvidenceData as LocationEvidence[];
-export const georeferenceQueue =
-  georeferenceQueueData as GeoreferenceQueueItem[];
-export const mentions = mentionsData as ArchivalMention[];
-export const matchCandidates =
-  matchCandidatesData as EntityMatchCandidate[];
-export const researchQueue = researchQueueData as ResearchQueueItem[];
+export const people = quakertown.people;
+export const places = quakertown.places;
+export const sources = quakertown.sources;
+export const relationships = quakertown.relationships;
+export const locationEvidence = quakertown.locationEvidence;
+export const georeferenceQueue = quakertown.georeferenceQueue;
+export const mentions = quakertown.mentions;
+export const matchCandidates = quakertown.matchCandidates;
+export const researchQueue = quakertown.researchQueue;
+
+export { formatVerification };
 
 export function getMentionById(id: string) {
   return mentions.find((mention) => mention.id === id);
 }
 
 export function getMentionsForEntity(entityId: string) {
-  return mentions.filter((mention) => mention.linked_entity_id === entityId);
+  return getProjectMentionsForEntity(quakertown, entityId);
 }
 
 export function getMatchCandidatesForMention(mentionId: string) {
   return matchCandidates.filter(
-    (candidate) =>
-      candidate.left_mention_id === mentionId ||
-      candidate.right_mention_id === mentionId
+    (candidate) => candidate.left_mention_id === mentionId || candidate.right_mention_id === mentionId
   );
 }
 
 export function getOpenResearchItemsForEntity(entityId: string) {
-  return researchQueue.filter(
-    (item) => item.status !== "resolved" && item.entity_ids.includes(entityId)
-  );
-}
-
-export function formatVerification(status: string) {
-  return status.replaceAll("_", " ");
+  return getProjectOpenResearchItemsForEntity(quakertown, entityId);
 }
 
 export function getPersonById(id: string) {
-  return people.find((person) => person.id === id);
+  return getProjectPersonById(quakertown, id);
 }
 
 export function getPlaceById(id: string) {
-  return places.find((place) => place.id === id);
+  return getProjectPlaceById(quakertown, id);
 }
 
 export function getSourceById(id: string) {
-  return sources.find((source) => source.id === id);
+  return getProjectSourceById(quakertown, id);
 }
 
 export function getEntityName(entityId: string) {
-  const person = getPersonById(entityId);
-  if (person) return person.name;
-
-  const place = getPlaceById(entityId);
-  if (place) return place.name;
-
-  return entityId;
+  return getProjectEntityName(quakertown, entityId);
 }
 
 export function getRelationshipsForEntity(entityId: string) {
-  return relationships.filter(
-    (relationship) =>
-      relationship.from_entity_id === entityId ||
-      relationship.to_entity_id === entityId
-  );
+  return getProjectRelationshipsForEntity(quakertown, entityId);
 }
 
 export function getSourcesForIds(sourceIds: string[]) {
-  return sources.filter((source) => sourceIds.includes(source.id));
+  return getProjectSourcesForIds(quakertown, sourceIds);
 }
 
 export function getLocationEvidenceForPlace(placeId: string) {
-  return locationEvidence.filter((item) => item.place_id === placeId);
+  return getProjectLocationEvidenceForPlace(quakertown, placeId);
 }
 
 export function getGeoreferenceQueueItemForPlace(placeId: string) {
-  return georeferenceQueue.find((item) => item.place_id === placeId);
+  return getProjectGeoreferenceQueueItemForPlace(quakertown, placeId);
 }
 
-export function isMappablePlace(place: HistoricalPlace) {
-  return (
-    place.georeference_status !== "unresolved" &&
-    typeof place.latitude === "number" &&
-    Number.isFinite(place.latitude) &&
-    typeof place.longitude === "number" &&
-    Number.isFinite(place.longitude)
-  );
-}
+export { isMappablePlace };

@@ -11,7 +11,10 @@ function isValidDate(value: string) {
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
 }
 
-export function validateExternalReviews(reviews: ExternalReview[]): string[] {
+export function validateExternalReviews(
+  reviews: ExternalReview[],
+  knownProjectSlugs: string[] = []
+): string[] {
   const errors: string[] = [];
   const seen = new Set<string>();
 
@@ -42,6 +45,13 @@ export function validateExternalReviews(reviews: ExternalReview[]): string[] {
     }
     if (review.permission_to_name !== true && review.public_name !== null) {
       errors.push(`${label}: public_name must be null unless permission_to_name is true`);
+    }
+    if (
+      review.project_slug !== null &&
+      knownProjectSlugs.length > 0 &&
+      !knownProjectSlugs.includes(review.project_slug)
+    ) {
+      errors.push(`${label}: project_slug "${review.project_slug}" does not match a known project`);
     }
   });
 

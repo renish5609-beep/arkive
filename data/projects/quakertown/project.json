@@ -1,0 +1,14 @@
+{
+  "slug": "quakertown",
+  "project_number": "001",
+  "title": "Quakertown Reconstructed",
+  "short_title": "Quakertown",
+  "location": "Denton, Texas",
+  "summary": "A source-traceable reconstruction of Denton's historic Black Quakertown community.",
+  "historical_context": "Quakertown was a Black community in Denton, Texas. Its residents were displaced during the 1920s, and some houses were physically moved. This reconstruction connects people, homes, schools, and relationships to the archival sources that document them, and it shows where the evidence is still incomplete.",
+  "status": "active_research",
+  "date_range": "late 19th century-1920s",
+  "featured": true,
+  "source_note": "The reconstruction currently draws on oral histories, government and county history records, and archival photograph descriptions. Most sources are short descriptions, and transcripts have not yet been read in full.",
+  "research_scope": "Coverage is deliberately limited to records and relationships supported by the current source set."
+}

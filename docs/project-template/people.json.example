@@ -1,0 +1,16 @@
+[
+  {
+    "_comment": "ILLUSTRATIVE EXAMPLE ONLY. Not a real person.",
+    "id": "person_001",
+    "name": "Example Person",
+    "aliases": [],
+    "birth_year": null,
+    "death_year": null,
+    "occupation": null,
+    "residences": [],
+    "relationships": [],
+    "source_ids": ["source_001"],
+    "verification_status": "unverified",
+    "notes": "State exactly what source_001 supports about this person, and nothing more."
+  }
+]

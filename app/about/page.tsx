@@ -143,6 +143,25 @@ export default function AboutPage() {
           </ul>
         </Section>
 
+        <Section id="reusable-project-model" title="Reusable project model">
+          <p>
+            Each reconstruction has its own manifest, sources, records, mentions, spatial
+            evidence, and research queues. The same validation and provenance rules run across
+            every project.
+          </p>
+          <p>
+            Quakertown Reconstructed is the flagship case study. Freedmen&apos;s Town Reconstructed
+            is a second, intentionally small case study, added to test whether the same framework
+            can support a different community without rewriting the application. It is a
+            portability pilot, not a comprehensive reconstruction.
+          </p>
+          <p>
+            <Link href="/projects" className="underline underline-offset-4">See all projects</Link>
+            {" · "}
+            <Link href="/start" className="underline underline-offset-4">Start a reconstruction</Link>
+          </p>
+        </Section>
+
         <Section id="corrections" title="Corrections">
           <p>
             Corrections and source suggestions are welcome. They are reviewed before they affect the

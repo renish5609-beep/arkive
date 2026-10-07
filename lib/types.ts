@@ -174,6 +174,8 @@ export interface ExternalReview {
   changes_made: string[];
   permission_to_name: boolean;
   public_name: string | null;
+  // null = a platform/general Arkive review; a slug = tied to that project.
+  project_slug: string | null;
 }
 
 export interface OutreachLogItem {
@@ -198,4 +200,38 @@ export interface OutreachLogItem {
     | "no_response";
   follow_up_date: string | null;
   notes: string;
+  // null = a platform/general outreach contact; a slug = tied to that project.
+  project_slug: string | null;
+}
+
+// --- Multi-project framework -----------------------------------------
+
+export type ProjectStatus = "active_research" | "pilot" | "archived";
+
+export interface HistoricalProjectManifest {
+  slug: string;
+  project_number: string;
+  title: string;
+  short_title: string;
+  location: string;
+  summary: string;
+  historical_context: string;
+  status: ProjectStatus;
+  date_range: string | null;
+  featured: boolean;
+  source_note: string;
+  research_scope: string;
+}
+
+export interface HistoricalProjectData {
+  manifest: HistoricalProjectManifest;
+  people: HistoricalPerson[];
+  places: HistoricalPlace[];
+  sources: HistoricalSource[];
+  relationships: HistoricalRelationship[];
+  locationEvidence: LocationEvidence[];
+  georeferenceQueue: GeoreferenceQueueItem[];
+  mentions: ArchivalMention[];
+  matchCandidates: EntityMatchCandidate[];
+  researchQueue: ResearchQueueItem[];
 }

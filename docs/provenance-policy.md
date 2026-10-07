@@ -92,6 +92,15 @@ If a source is withdrawn or no longer available, Arkive keeps the citation and i
 
 Some records concern displacement, segregation, and the loss of homes. Arkive aims to describe these people and communities with care. It preserves the context of each source, names who is speaking and when, and avoids language that sensationalizes suffering.
 
-## 9. Date of last update
+## 9. Cross-project policy
 
-This policy was last updated on **2026-10-06**. Changes to the policy are recorded in [CHANGELOG.md](../CHANGELOG.md).
+Arkive holds more than one reconstruction project (for example Quakertown and Freedmen's Town), and is built so that more can be added. Each project is its own closed world for provenance purposes:
+
+- **Evidence never transfers automatically between projects.** A source, mention, or record that supports a claim in one project says nothing about another project, even if the two projects cover related history.
+- **Records from one project cannot satisfy provenance for another.** A relationship, mention, or match candidate in one project is validated only against that project's own people, places, and sources. A reference to another project's ID is treated as a reference to nothing.
+- **The same historical person appearing in two projects remains two separate records** until Arkive introduces an explicit cross-project linkage model. This packet does not introduce one.
+- This is deliberate. It prevents premature, unreviewed identity resolution across projects that may have been researched independently, by different people, at different times.
+
+## 10. Date of last update
+
+This policy was last updated on **2026-10-07**, when the cross-project policy was added. Changes to the policy are recorded in [CHANGELOG.md](../CHANGELOG.md).

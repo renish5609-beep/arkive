@@ -1,0 +1,14 @@
+{
+  "slug": "freedmens-town",
+  "project_number": "002",
+  "title": "Freedmen's Town Reconstructed",
+  "short_title": "Freedmen's Town",
+  "location": "Houston, Texas",
+  "summary": "A small source-traceable reconstruction of Houston's historic Freedmen's Town, created to test Arkive's reusable local-history reconstruction framework.",
+  "historical_context": "Freedmen's Town developed in Houston's Fourth Ward just after emancipation, on the southern banks of Buffalo Bayou, and grew into the economic, spiritual, and cultural center of Houston's Black community. The Freedmen's Town Historic District was listed on the National Register of Historic Places on January 17, 1985. Since 1940, urban renewal, federal highway construction, and the expansion of Houston's central business district have reduced the community to a 40-block historic district.",
+  "status": "pilot",
+  "date_range": "1865-mid 20th century",
+  "featured": true,
+  "source_note": "Initial records draw on a Texas Historical Commission atlas entry and a 1985 Texas Historical Commission newsletter article, both read directly. The official National Register nomination form exists at the Texas Historical Commission but could not be read in this session: it is a scanned document with no extractable text layer. Two Houston-area archival finding aids (Houston Metropolitan Research Center and University of Houston Libraries) could not be accessed because of bot-protection challenges. See the research queue.",
+  "research_scope": "This is a portability pilot, not a comprehensive reconstruction of Houston's Fourth Ward."
+}

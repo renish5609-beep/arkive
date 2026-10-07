@@ -1,19 +1,20 @@
-// Download links for the public dataset. All links are relative so they work
-// in local development and in any deployment.
-const LINKS = [
-  { href: "/api/export/quakertown?format=json", label: "JSON, full dataset" },
-  { href: "/api/export/quakertown?format=csv&entity=people", label: "People CSV" },
-  { href: "/api/export/quakertown?format=csv&entity=places", label: "Places CSV" },
-  { href: "/api/export/quakertown?format=csv&entity=relationships", label: "Relationships CSV" },
-  { href: "/api/export/quakertown?format=csv&entity=mentions", label: "Mentions CSV" },
-  { href: "/api/export/quakertown?format=csv&entity=sources", label: "Sources CSV" },
-];
+// Download links for a project's public dataset. All links are relative so
+// they work in local development and in any deployment.
+export default function DatasetLinks({ projectSlug }: { projectSlug: string }) {
+  const base = `/api/export/${projectSlug}`;
+  const links = [
+    { href: `${base}?format=json`, label: "JSON, full dataset" },
+    { href: `${base}?format=csv&entity=people`, label: "People CSV" },
+    { href: `${base}?format=csv&entity=places`, label: "Places CSV" },
+    { href: `${base}?format=csv&entity=relationships`, label: "Relationships CSV" },
+    { href: `${base}?format=csv&entity=mentions`, label: "Mentions CSV" },
+    { href: `${base}?format=csv&entity=sources`, label: "Sources CSV" },
+  ];
 
-export default function DatasetLinks() {
   return (
     <div>
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {LINKS.map((link) => (
+        {links.map((link) => (
           <li key={link.href}>
             <a
               href={link.href}

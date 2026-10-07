@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { validateExternalReviews } from "../lib/external-reviews";
+import { listProjectSlugs } from "../lib/projects";
 import type { ExternalReview } from "../lib/types";
 
 // Reads only what has actually been recorded. Counts are never estimated.
@@ -16,7 +17,7 @@ const impact = JSON.parse(
   presentations: number;
 };
 
-const errors = validateExternalReviews(reviews);
+const errors = validateExternalReviews(reviews, listProjectSlugs());
 
 console.log("ARKIVE EXTERNAL VALIDATION");
 console.log("==========================");

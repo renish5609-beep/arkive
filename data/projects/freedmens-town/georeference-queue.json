@@ -1,0 +1,54 @@
+[
+  {
+    "id": "ft_georef_001",
+    "place_id": "ft_place_001",
+    "priority": "high",
+    "research_question": "Can the official National Register boundary (Genesse, West Dallas, Arthur, and West Gray Streets) be converted into a defensible polygon or centroid using Harris County parcel or GIS data?",
+    "suggested_sources": [
+      "Harris County Appraisal District GIS data",
+      "City of Houston GIS / Planning and Development Department",
+      "National Register nomination form (requires OCR or manual review; see ft_source_002)"
+    ],
+    "status": "open",
+    "notes": "A street-bounded description is not itself a coordinate. Do not infer an arbitrary centroid from the boundary streets alone."
+  },
+  {
+    "id": "ft_georef_002",
+    "place_id": "ft_place_002",
+    "priority": "medium",
+    "research_question": "Can a historical or current address for Antioch Baptist Church within the Freedmen's Town district be confirmed from a primary source?",
+    "suggested_sources": [
+      "National Register nomination form (requires OCR or manual review; see ft_source_002)",
+      "Period Houston city directories",
+      "Church records, if publicly available"
+    ],
+    "status": "open",
+    "notes": "The current source names the church but gives no address."
+  },
+  {
+    "id": "ft_georef_003",
+    "place_id": "ft_place_003",
+    "priority": "medium",
+    "research_question": "Can the historical address or site of the original Colored High School be confirmed from period maps or Houston Independent School District records?",
+    "suggested_sources": [
+      "National Register nomination form (requires OCR or manual review; see ft_source_002)",
+      "Sanborn or other period maps of Houston's Fourth Ward",
+      "Houston Independent School District historical records"
+    ],
+    "status": "open",
+    "notes": "The current source names the school but gives no address."
+  },
+  {
+    "id": "ft_georef_004",
+    "place_id": "ft_place_004",
+    "priority": "medium",
+    "research_question": "Can the historical address or site of the Black Carnegie Library Building be confirmed from period maps or Houston Public Library records?",
+    "suggested_sources": [
+      "National Register nomination form (requires OCR or manual review; see ft_source_002)",
+      "Houston Public Library historical records",
+      "Sanborn or other period maps of Houston's Fourth Ward"
+    ],
+    "status": "open",
+    "notes": "The current source names the library building but gives no address."
+  }
+]

@@ -12,6 +12,7 @@ import type {
 } from "@/lib/types";
 
 interface ArchiveExplorerProps {
+  projectSlug: string;
   people: HistoricalPerson[];
   places: HistoricalPlace[];
   relationships: HistoricalRelationship[];
@@ -25,6 +26,7 @@ function formatVerification(status: string) {
 }
 
 export default function ArchiveExplorer({
+  projectSlug,
   people,
   places,
   relationships,
@@ -197,7 +199,7 @@ export default function ArchiveExplorer({
                       personSources.map((source) => (
                         <Link
                           key={source.id}
-                          href={`/sources/${source.id}`}
+                          href={`/projects/${projectSlug}/sources/${source.id}`}
                           className="border border-black/10 px-2 py-1 text-xs transition hover:bg-black hover:text-white"
                         >
                           {source.source_type.replaceAll("_", " ")}
@@ -251,7 +253,7 @@ export default function ArchiveExplorer({
               </div>
 
               <Link
-                href={`/records/${person.id}`}
+                href={`/projects/${projectSlug}/records/${person.id}`}
                 className="mt-7 inline-block text-sm font-medium underline underline-offset-4"
               >
                 Open reconstructed record
