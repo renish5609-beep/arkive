@@ -17,27 +17,32 @@ const REPORT_TYPES = [
   {
     title: "Factual correction",
     body: "A claim, date, name, or relationship is wrong or overstated. Include the record, the claim, and the source that shows the correction.",
-    template: "historical-correction.yml",
+    url: SITE.historicalCorrectionUrl,
+    cta: "Report a factual correction",
   },
   {
     title: "Source suggestion",
-    body: "An archival collection, oral history, map, or record that documents something in Quakertown. Include a link and what it covers.",
-    template: "source-suggestion.yml",
+    body: "An archival collection, oral history, map, or record that documents a community in one of Arkive's projects. Include a link and what it covers.",
+    url: SITE.sourceSuggestionUrl,
+    cta: "Suggest a source",
   },
   {
     title: "Missing person or place",
     body: "A person, home, school, church, or business that the sources document but Arkive does not yet include. Name the source that mentions it.",
-    template: "historical-correction.yml",
+    url: SITE.historicalCorrectionUrl,
+    cta: "Report a missing record",
   },
   {
     title: "Georeference concern",
     body: "A location is misplaced, or a question has been raised about how a location was derived. Name the place and the evidence you have.",
-    template: "historical-correction.yml",
+    url: SITE.historicalCorrectionUrl,
+    cta: "Report a georeference concern",
   },
   {
     title: "Accessibility issue",
     body: "Something is hard to use with a screen reader, keyboard, zoom, or on a small screen. Describe the page and what happened.",
-    template: "bug-report.yml",
+    url: SITE.bugReportUrl,
+    cta: "Report a bug or accessibility issue",
   },
 ];
 
@@ -60,15 +65,53 @@ export default function FeedbackPage() {
             Nothing changes automatically. A reviewer checks each report against its source before
             any record, status, or coordinate is updated.
           </p>
-          <a
-            href={SITE.issuesNewUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 inline-block bg-black px-5 py-3 text-sm text-white hover:opacity-80"
-          >
-            Open a new GitHub issue
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
+          <div className="mt-6 flex flex-wrap gap-3 text-sm">
+            <a
+              href={SITE.historicalCorrectionUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block bg-black px-5 py-3 text-white hover:opacity-80"
+            >
+              Report a historical correction
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a
+              href={SITE.sourceSuggestionUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block border border-black/20 px-5 py-3 hover:bg-black hover:text-white"
+            >
+              Suggest a source
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a
+              href={SITE.bugReportUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block border border-black/20 px-5 py-3 hover:bg-black hover:text-white"
+            >
+              Report a bug or accessibility issue
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+          <p className="mt-6 text-xs leading-6 opacity-60">
+            Not sure which one fits, or reporting something else? Use the{" "}
+            <a href={SITE.issuesNewUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4">
+              general issue form
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            .
+          </p>
+        </div>
+
+        <div className="mt-8 border border-black/15 bg-white/20 p-6 text-sm leading-6 opacity-85">
+          <p className="font-medium">GitHub requires a free GitHub account to submit an issue.</p>
+          <p className="mt-2">
+            If you cannot or do not want to create a GitHub account, and you received Arkive
+            through direct outreach, you can reply to that email with your feedback instead. It
+            will be read and, with your permission, recorded the same way a GitHub report would
+            be.
+          </p>
         </div>
 
         <h2 className="mt-16 text-2xl font-medium">What to report</h2>
@@ -77,7 +120,15 @@ export default function FeedbackPage() {
             <li key={type.title} className="border-l-2 border-black/20 pl-5">
               <h3 className="font-medium">{type.title}</h3>
               <p className="mt-2 leading-7 opacity-85">{type.body}</p>
-              <p className="mt-2 text-xs opacity-60">Use the form: {type.template}</p>
+              <a
+                href={type.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block text-xs font-medium underline underline-offset-4"
+              >
+                {type.cta}
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </li>
           ))}
         </ul>

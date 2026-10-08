@@ -221,6 +221,9 @@ export interface HistoricalProjectManifest {
   featured: boolean;
   source_note: string;
   research_scope: string;
+  // Optional short contextual framing shown on the project page. Explains the
+  // broader historical environment without turning the page into an essay.
+  context_note?: string;
 }
 
 export interface HistoricalProjectData {

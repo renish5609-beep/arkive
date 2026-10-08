@@ -12,7 +12,7 @@ body:
     id: record
     attributes:
       label: Record or entity
-      description: The record ID or page URL (for example person_004, place_005, or /records/person_004).
+      description: The record ID or page URL (for example person_004, place_005, or /projects/quakertown/records/person_004).
       placeholder: person_004
     validations:
       required: true

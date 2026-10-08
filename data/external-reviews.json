@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "review_001",
+    "reviewer_role": "Director of a university oral history program and historian",
+    "organization": null,
+    "date": "2026-10-08",
+    "scope": "Quakertown historical framing, provenance, historical uncertainty, terminology, intended users, and usability.",
+    "feedback_summary": "The reviewer found the historical framing accurate but too limited in contextual depth; found archival provenance clear; noted that historical uncertainty is broader than Arkive's provenance and link-confidence categories; found the intended user and use case unclear; found the phrase \"reconstructed person\" awkward; reported that the feedback page did not work for them; and recommended seeking additional digital-humanities feedback from Dr. Andrew Torget.",
+    "changes_made": [],
+    "permission_to_name": false,
+    "public_name": null,
+    "project_slug": "quakertown"
+  }
+]

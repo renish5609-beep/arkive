@@ -22,11 +22,11 @@ const STEPS = [
 ];
 
 const QUESTIONS = [
-  "Is the historical framing accurate?",
-  "Is provenance clear?",
-  "Is uncertainty communicated responsibly?",
-  "What would make the tool useful to you?",
-  "What is missing or misleading?",
+  "Is the historical framing accurate and sufficiently contextualized?",
+  "Can you tell where important claims come from?",
+  "Does the site communicate both evidence uncertainty and broader historical uncertainty responsibly?",
+  "Can you tell who Arkive is for and what task it helps them perform?",
+  "What is misleading, confusing, missing, or awkwardly worded?",
 ];
 
 export default function ReviewGuidePage() {

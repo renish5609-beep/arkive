@@ -72,10 +72,27 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-8 opacity-80">{manifest.historical_context}</p>
 
+          {manifest.context_note && (
+            <div className="mt-10 max-w-3xl border-l-2 border-black/25 pl-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-60">
+                Why this community matters
+              </div>
+              <p className="mt-2 text-sm leading-7 opacity-80">{manifest.context_note}</p>
+            </div>
+          )}
+
           <div className="mt-10 border-l-2 border-black/25 pl-5">
             <div className="text-xs font-semibold uppercase tracking-[0.14em] opacity-60">Current scope</div>
             <p className="mt-2 max-w-3xl text-sm leading-7 opacity-80">{manifest.research_scope}</p>
             <p className="mt-3 max-w-3xl text-sm leading-7 opacity-70">{manifest.source_note}</p>
+            <p className="mt-3 max-w-3xl text-sm leading-7 opacity-70">
+              Verification labels describe the status of Arkive&apos;s evidence links; they do not
+              capture every{" "}
+              <a href="/about#historical-uncertainty" className="underline underline-offset-4">
+                historical uncertainty
+              </a>{" "}
+              involved in interpreting the past.
+            </p>
           </div>
         </section>
 
@@ -86,7 +103,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </h2>
             <p className="mt-2 text-sm opacity-70">Counts are derived from the dataset.</p>
             <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-              <MetricCard value={metrics.people} label="People reconstructed" />
+              <MetricCard value={metrics.people} label="People documented" />
               <MetricCard value={metrics.places} label="Places reconstructed" />
               <MetricCard value={metrics.sources} label="Archival sources" />
               <MetricCard value={metrics.relationships} label="Relationships" />

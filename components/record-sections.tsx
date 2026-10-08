@@ -132,7 +132,7 @@ export function PersonRecordView({
     <article className="mx-auto max-w-5xl px-6 py-16 md:px-12 md:py-24">
       <div className="flex flex-wrap items-center gap-3">
         <div className="text-xs font-semibold uppercase tracking-[0.2em] opacity-45">
-          Reconstructed person record
+          Historical person record
         </div>
         <span className="border border-black/15 px-2 py-1 text-[10px] uppercase tracking-[0.14em] opacity-60">
           {formatVerification(person.verification_status)}

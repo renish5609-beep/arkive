@@ -1,5 +1,5 @@
 name: Source suggestion
-description: Suggest an archival collection, oral history, map, or record for the Quakertown reconstruction
+description: Suggest an archival collection, oral history, map, or record for an Arkive reconstruction
 title: "[Source] "
 labels: ["source-suggestion", "needs-review"]
 body:
@@ -8,6 +8,16 @@ body:
       value: |
         Suggested sources are reviewed before any claim is drawn from them.
         Prefer archival collections, oral histories, census and directory records, deeds, maps, and official local records.
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      options:
+        - Quakertown Reconstructed
+        - Freedmen's Town Reconstructed
+        - New / proposed project
+    validations:
+      required: true
   - type: input
     id: title
     attributes:

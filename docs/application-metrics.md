@@ -18,7 +18,7 @@ Freedmen's Town Reconstructed (pilot case study): 0 people / 4 places / 3 source
 
 ## EXTERNAL VALIDATION
 
-External reviews: 0
+External reviews: 1
 Educators contacted: 0
 Classrooms using: 0
 Community contributors: 0
@@ -27,4 +27,4 @@ Presentations: 0
 ## STATUS
 
 Deployment URL: Not yet measured
-Last validated: 2026-10-07
+Last validated: 2026-10-08

@@ -39,6 +39,31 @@ export default function StartPage() {
         </div>
 
         <section className="mt-16 border-t border-black/10 pt-10">
+          <h2 className="text-2xl font-medium">Who Arkive is for</h2>
+          <p className="mt-4 leading-7 opacity-85">
+            Arkive is designed for people who need to connect scattered historical evidence
+            without hiding where those connections came from:
+          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 opacity-85">
+            <li>historians and public historians,</li>
+            <li>teachers and students,</li>
+            <li>libraries, archives, museums, and historical societies,</li>
+            <li>genealogists and community researchers,</li>
+            <li>digital-humanities projects.</li>
+          </ul>
+        </section>
+
+        <section className="mt-16 border-t border-black/10 pt-10">
+          <h2 className="text-2xl font-medium">Practical use cases</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-6 leading-7 opacity-85">
+            <li>Build a source-traceable local-history reconstruction.</li>
+            <li>Teach students how claims connect back to archival evidence.</li>
+            <li>Track unresolved identities, locations, and research questions across a project.</li>
+            <li>Publish structured data from a community archive without presenting uncertain claims as settled fact.</li>
+          </ul>
+        </section>
+
+        <section className="mt-16 border-t border-black/10 pt-10">
           <h2 className="text-2xl font-medium">Start a reconstruction</h2>
           <p className="mt-4 leading-7 opacity-85">Arkive works best when a project has:</p>
           <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 opacity-85">

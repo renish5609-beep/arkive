@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "outreach_001",
+    "category": "historian",
+    "organization": null,
+    "contact_name": null,
+    "contact_method": "email",
+    "date_sent": "2026-10-07",
+    "ask": "Requested review of Arkive's historical framing, provenance, uncertainty model, usefulness, and missing elements.",
+    "status": "review_completed",
+    "follow_up_date": null,
+    "notes": "Reviewer provided substantive written feedback on 2026-10-08. See review_001.",
+    "project_slug": "quakertown"
+  }
+]

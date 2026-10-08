@@ -133,6 +133,35 @@ export default function AboutPage() {
           </p>
         </Section>
 
+        <Section id="historical-uncertainty" title="Historical uncertainty">
+          <p>
+            Arkive makes some kinds of uncertainty machine-readable: source provenance,
+            verification state, entity identity, spatial confidence, and open research questions.
+            Each record shows which of these apply and why.
+          </p>
+          <p className="border-l-4 border-black pl-5 font-medium opacity-100">
+            Arkive can make some uncertainties machine-readable, but it cannot reduce historical
+            interpretation to a confidence score. Surviving records are incomplete and shaped by
+            the institutions and people who created, preserved, or excluded them.
+          </p>
+          <p>Historical uncertainty is broader than what any of Arkive&apos;s labels capture. It includes:</p>
+          <ul className="list-disc space-y-2 pl-6">
+            <li>survival bias in archives,</li>
+            <li>silences and missing voices,</li>
+            <li>conflicting testimony,</li>
+            <li>ambiguous motives,</li>
+            <li>incomplete chronology,</li>
+            <li>changing terminology,</li>
+            <li>interpretive disagreement,</li>
+            <li>uneven institutional recordkeeping.</li>
+          </ul>
+          <p>
+            Arkive does not assign a numeric confidence score to historical interpretation.
+            Reading a verified record still requires the same judgment any historical source
+            requires.
+          </p>
+        </Section>
+
         <Section id="limitations" title="Limitations">
           <ul className="list-disc space-y-3 pl-6">
             <li>The dataset is incomplete.</li>
@@ -159,6 +188,23 @@ export default function AboutPage() {
             <Link href="/projects" className="underline underline-offset-4">See all projects</Link>
             {" · "}
             <Link href="/start" className="underline underline-offset-4">Start a reconstruction</Link>
+          </p>
+        </Section>
+
+        <Section id="who-arkive-is-for" title="Who Arkive is for">
+          <p>
+            Arkive is designed for people who need to connect scattered historical evidence
+            without hiding where those connections came from: historians and public historians,
+            teachers and students, libraries, archives, museums, and historical societies,
+            genealogists and community researchers, and digital-humanities projects. Arkive does
+            not yet have confirmed use by any of these groups; this describes who it is built for,
+            not who currently uses it.
+          </p>
+          <p>
+            Arkive does not replace archival research or archival discovery tools; it provides a
+            structured layer for documenting, checking, teaching, and publishing the connections
+            researchers make across records. See{" "}
+            <Link href="/start" className="underline underline-offset-4">practical use cases</Link>.
           </p>
         </Section>
 

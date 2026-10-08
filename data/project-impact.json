@@ -1,8 +1,10 @@
 {
-  "external_reviews": 0,
+  "external_reviews": 1,
   "educators_contacted": 0,
   "classrooms_using": 0,
   "community_contributors": 0,
   "presentations": 0,
-  "notes": []
+  "notes": [
+    "external_reviews: One substantive historian review completed on 2026-10-08; review record stored in data/external-reviews.json."
+  ]
 }

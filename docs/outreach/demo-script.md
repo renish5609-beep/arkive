@@ -14,7 +14,7 @@ Open `/sources/source_005`, the Denton County Historical Commission narrative.
 
 "Each source has its own page. This one lists the mentions extracted from it, and shows which ones are linked to a record and which are still unresolved."
 
-## 0:40. See a reconstructed person (20 seconds)
+## 0:40. Open a historical person record (20 seconds)
 
 Open `/records/person_003`, Frederick Douglass Moore.
 

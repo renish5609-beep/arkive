@@ -21,7 +21,7 @@ const STEPS = [
     text: "Start with the Denton County Historical Commission narrative. The page lists every mention extracted from it and shows which ones are linked to records.",
   },
   {
-    title: "See a reconstructed person",
+    title: "Open a historical person record",
     href: "/projects/quakertown/records/person_003",
     text: "Frederick Douglass Moore, an educator discussed in the Moore family oral history. Each record shows its verification state and its sources.",
   },

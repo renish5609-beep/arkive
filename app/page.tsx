@@ -74,6 +74,23 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="border-y border-black/10 px-6 py-16 md:px-12" aria-labelledby="who-for-heading">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-60">Who it&apos;s for</p>
+            <h2 id="who-for-heading" className="mt-3 text-3xl font-medium">Who Arkive is for</h2>
+            <p className="mt-5 max-w-3xl border-l-4 border-black pl-5 text-lg leading-8 opacity-85">
+              Arkive is designed for people who need to connect scattered historical evidence
+              without hiding where those connections came from: historians and public historians,
+              teachers and students, libraries, archives, museums, and historical societies,
+              genealogists and community researchers, and digital-humanities projects.
+            </p>
+            <p className="mt-5 max-w-3xl text-sm leading-7 opacity-70">
+              See <Link href="/start" className="underline underline-offset-4">who starts a project</Link> and
+              what it&apos;s useful for.
+            </p>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-6 py-16 md:px-12" aria-labelledby="multi-project-heading">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-60">
             Built for more than one community

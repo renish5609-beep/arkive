@@ -8,5 +8,10 @@ export const SITE = {
     "Arkive reconstructs historical communities from fragmented archival records while preserving source provenance, uncertainty, and the evidence behind every connection.",
   repoUrl: "https://github.com/renish5609-beep/arkive",
   issuesNewUrl: "https://github.com/renish5609-beep/arkive/issues/new/choose",
+  historicalCorrectionUrl:
+    "https://github.com/renish5609-beep/arkive/issues/new?template=historical-correction.yml",
+  sourceSuggestionUrl:
+    "https://github.com/renish5609-beep/arkive/issues/new?template=source-suggestion.yml",
+  bugReportUrl: "https://github.com/renish5609-beep/arkive/issues/new?template=bug-report.yml",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || null,
 } as const;
